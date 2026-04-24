@@ -10,31 +10,14 @@
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 :root {
-  --bg: #0a0a0a;
-  --surface: #151515;
-  --surface-2: #1e1e1e;
-  --border: #2a2a2a;
-  --border-strong: #3a3a3a;
-  --text: #f0f0f0;
-  --text-2: #a0a0a0;
-  --text-3: #707070;
-  --accent: #d85a30;
-  --accent-dim: #4a1b0c;
-  --ok: #5dcaa5;
-  --warn: #ef9f27;
-  --bad: #e24b4a;
-  --info: #85b7eb;
+  --bg: #0a0a0a; --surface: #151515; --surface-2: #1e1e1e;
+  --border: #2a2a2a; --border-strong: #3a3a3a;
+  --text: #f0f0f0; --text-2: #a0a0a0; --text-3: #707070;
+  --accent: #d85a30; --accent-dim: #4a1b0c;
+  --ok: #5dcaa5; --warn: #ef9f27; --bad: #e24b4a; --info: #85b7eb;
 }
-html, body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 15px;
-  line-height: 1.5;
-  overflow-x: hidden;
-  min-height: 100vh;
-}
-body { padding-bottom: 75px; }
+html, body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 15px; line-height: 1.5; overflow-x: hidden; min-height: 100vh; }
+body { padding-bottom: 78px; }
 .app { max-width: 500px; margin: 0 auto; padding: 16px; }
 .hdr { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px; }
 .hdr h1 { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; }
@@ -44,135 +27,91 @@ body { padding-bottom: 75px; }
 .pill.ok { background: #0f2a20; color: var(--ok); border-color: #0F6E56; }
 .pill.warn { background: #2a1f08; color: var(--warn); border-color: #854F0B; }
 .pill.bad { background: #2a0f0f; color: var(--bad); border-color: #791F1F; }
-
 .card { background: var(--surface); border: 0.5px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 12px; }
 .card h2 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
 .card .subtitle { color: var(--text-2); font-size: 13px; margin-bottom: 14px; }
-.card h3 { font-size: 14px; font-weight: 600; margin: 14px 0 8px; color: var(--text-2); text-transform: uppercase; letter-spacing: 0.05em; font-size: 11px; }
-
+.card h3 { font-size: 11px; font-weight: 600; margin: 14px 0 8px; color: var(--text-2); text-transform: uppercase; letter-spacing: 0.05em; }
+.quote-card { background: linear-gradient(135deg, #1a0d07 0%, #0f0f0f 100%); border: 0.5px solid var(--accent-dim); padding: 14px 16px; border-radius: 12px; margin-bottom: 12px; font-style: italic; color: #F5C4B3; font-size: 14px; }
+.quote-card .attr { font-style: normal; color: var(--text-3); font-size: 11px; margin-top: 6px; text-align: right; }
 .row { display: flex; align-items: center; gap: 10px; }
 .row.space { justify-content: space-between; }
 .col { display: flex; flex-direction: column; gap: 10px; }
 .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
-
 .stat { background: var(--surface-2); border-radius: 8px; padding: 10px 12px; }
 .stat .label { font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.05em; }
 .stat .value { font-size: 22px; font-weight: 600; margin-top: 2px; }
 .stat .trend { font-size: 11px; color: var(--text-3); margin-top: 2px; }
-.stat .trend.up { color: var(--ok); }
-.stat .trend.down { color: var(--bad); }
-
+.stat .trend.up { color: var(--ok); } .stat .trend.down { color: var(--bad); }
 .prog { background: var(--surface-2); border-radius: 6px; height: 8px; overflow: hidden; margin-top: 6px; }
 .prog > div { height: 100%; background: var(--accent); border-radius: 6px; transition: width 0.3s; }
 .prog.ok > div { background: var(--ok); }
-.prog.warn > div { background: var(--warn); }
-
-button, .btn {
-  background: var(--surface-2); color: var(--text); border: 0.5px solid var(--border-strong);
-  border-radius: 8px; padding: 10px 14px; font-size: 14px; font-weight: 500;
-  cursor: pointer; font-family: inherit; transition: background 0.1s; -webkit-appearance: none;
-}
+button, .btn { background: var(--surface-2); color: var(--text); border: 0.5px solid var(--border-strong); border-radius: 8px; padding: 10px 14px; font-size: 14px; font-weight: 500; cursor: pointer; font-family: inherit; transition: background 0.1s; -webkit-appearance: none; }
 button:active { background: var(--border); transform: scale(0.98); }
 button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
 button.primary:active { background: #A14019; }
 button.ghost { background: transparent; border-color: var(--border); }
 button.small { padding: 6px 10px; font-size: 12px; }
-button.tiny { padding: 4px 8px; font-size: 11px; }
 button.danger { color: var(--bad); border-color: #501313; }
 button.full { width: 100%; }
-button:disabled { opacity: 0.4; cursor: not-allowed; }
-
-input, select, textarea {
-  background: var(--surface-2); color: var(--text); border: 0.5px solid var(--border-strong);
-  border-radius: 8px; padding: 10px 12px; font-size: 15px; font-family: inherit;
-  -webkit-appearance: none; width: 100%;
-}
+input, select, textarea { background: var(--surface-2); color: var(--text); border: 0.5px solid var(--border-strong); border-radius: 8px; padding: 10px 12px; font-size: 15px; font-family: inherit; -webkit-appearance: none; width: 100%; }
 input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); }
 input[type=number] { font-variant-numeric: tabular-nums; }
 label { font-size: 12px; color: var(--text-2); display: block; margin-bottom: 4px; }
-
-.set-row { display: grid; grid-template-columns: 32px 1fr 1fr 1fr 40px; gap: 8px; align-items: center; margin-bottom: 8px; }
+.set-row { display: grid; grid-template-columns: 24px 1fr 1fr 1fr 34px; gap: 6px; align-items: center; margin-bottom: 6px; }
 .set-row .idx { color: var(--text-3); font-size: 13px; text-align: center; }
-.set-row input { padding: 8px 10px; font-size: 14px; text-align: center; }
-.set-row .chk {
-  width: 36px; height: 36px; border-radius: 8px; background: var(--surface-2);
-  border: 0.5px solid var(--border-strong); display: flex; align-items: center; justify-content: center;
-  cursor: pointer; font-size: 16px;
-}
+.set-row input { padding: 8px 8px; font-size: 14px; text-align: center; }
+.set-row .chk { width: 34px; height: 34px; border-radius: 8px; background: var(--surface-2); border: 0.5px solid var(--border-strong); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 16px; }
 .set-row .chk.done { background: var(--ok); border-color: var(--ok); color: #04342C; }
-
 .exercise { padding: 14px 0; border-bottom: 0.5px solid var(--border); }
 .exercise:last-child { border-bottom: none; }
 .exercise .name { font-size: 15px; font-weight: 600; }
 .exercise .target { font-size: 12px; color: var(--text-3); margin-top: 2px; }
 .exercise .suggest { font-size: 12px; color: var(--info); margin-top: 4px; background: #042C53; padding: 6px 10px; border-radius: 6px; }
-
-nav.tabs {
-  position: fixed; bottom: 0; left: 0; right: 0; background: rgba(10,10,10,0.95);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border-top: 0.5px solid var(--border); display: flex; padding: 8px;
-  padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px));
-  z-index: 100;
-}
-.tab { flex: 1; text-align: center; padding: 8px 4px; cursor: pointer; color: var(--text-3); font-size: 10px; }
+nav.tabs { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(10,10,10,0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-top: 0.5px solid var(--border); display: flex; padding: 8px; padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px)); z-index: 100; }
+.tab { flex: 1; text-align: center; padding: 6px 2px; cursor: pointer; color: var(--text-3); font-size: 10px; user-select: none; }
 .tab.active { color: var(--accent); }
 .tab .ico { width: 22px; height: 22px; margin: 0 auto 2px; display: block; fill: none; stroke: currentColor; stroke-width: 2; }
-
-.food-chip {
-  display: inline-flex; align-items: center; gap: 4px; background: var(--surface-2);
-  border: 0.5px solid var(--border); border-radius: 16px; padding: 4px 10px;
-  font-size: 12px; margin-right: 4px; margin-bottom: 4px; cursor: pointer;
-}
-.food-chip:active { background: var(--border); }
-
-.log-item { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 0.5px solid var(--border); }
+.food-chip { display: inline-flex; align-items: center; gap: 4px; background: var(--surface-2); border: 0.5px solid var(--border); border-radius: 16px; padding: 4px 10px; font-size: 12px; margin-right: 4px; margin-bottom: 4px; cursor: pointer; }
+.log-item { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 0.5px solid var(--border); gap: 8px; }
 .log-item:last-child { border-bottom: none; }
 .log-item .nm { font-size: 14px; }
 .log-item .mac { font-size: 11px; color: var(--text-3); }
 .log-item .rt { text-align: right; }
 .log-item .rt .kcal { font-weight: 600; }
-.log-item .del { padding: 4px 8px; color: var(--text-3); cursor: pointer; font-size: 14px; }
-
-.week-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
-.day-cell { aspect-ratio: 1; background: var(--surface-2); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--text-3); }
-.day-cell.done { background: var(--ok); color: #04342C; }
-.day-cell.today { border: 1px solid var(--accent); color: var(--accent); }
-.day-cell.missed { background: #2a0f0f; color: var(--bad); }
-
+.log-item .del { padding: 4px 8px; color: var(--text-3); cursor: pointer; font-size: 18px; }
 .chart-wrap { position: relative; height: 160px; margin: 10px 0; }
 svg.chart { width: 100%; height: 100%; }
 svg.chart .grid { stroke: var(--border); stroke-width: 0.5; }
 svg.chart .line { stroke: var(--accent); stroke-width: 2; fill: none; }
 svg.chart .pt { fill: var(--accent); }
 svg.chart text { fill: var(--text-3); font-size: 10px; }
-
 .plan-sect { margin-bottom: 14px; }
 .plan-sect h4 { font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 6px; }
 .plan-sect p { font-size: 13px; color: var(--text-2); margin-bottom: 4px; }
 .plan-sect ul { list-style: none; padding-left: 0; }
 .plan-sect li { font-size: 13px; color: var(--text-2); padding: 3px 0 3px 16px; position: relative; }
 .plan-sect li::before { content: "—"; position: absolute; left: 0; color: var(--text-3); }
-
 .toast { position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%); background: var(--surface); border: 0.5px solid var(--border-strong); padding: 10px 16px; border-radius: 8px; font-size: 13px; z-index: 200; opacity: 0; transition: opacity 0.2s; pointer-events: none; }
 .toast.show { opacity: 1; }
-
-.hide { display: none; }
-.mt { margin-top: 10px; }
-.mt2 { margin-top: 16px; }
-.mb { margin-bottom: 10px; }
-.center { text-align: center; }
+.hide { display: none !important; }
+.mt { margin-top: 10px; } .mt2 { margin-top: 16px; } .mb { margin-bottom: 10px; }
 .muted { color: var(--text-3); font-size: 12px; }
 .warn-box { background: #2a1f08; border: 0.5px solid #854F0B; color: var(--warn); padding: 10px 12px; border-radius: 8px; font-size: 13px; margin-bottom: 12px; }
-.ok-box { background: #0f2a20; border: 0.5px solid #0F6E56; color: var(--ok); padding: 10px 12px; border-radius: 8px; font-size: 13px; margin-bottom: 12px; }
+.info-box { background: #0a1d30; border: 0.5px solid #1e4872; color: var(--info); padding: 10px 12px; border-radius: 8px; font-size: 13px; margin-bottom: 12px; }
 .num { font-variant-numeric: tabular-nums; }
-
 details { background: var(--surface-2); border-radius: 8px; padding: 0; margin-bottom: 8px; }
 summary { padding: 10px 12px; cursor: pointer; font-size: 13px; font-weight: 500; list-style: none; }
 summary::-webkit-details-marker { display: none; }
 summary::before { content: "+ "; color: var(--text-3); }
 details[open] summary::before { content: "− "; }
-details > div { padding: 0 12px 12px; font-size: 13px; color: var(--text-2); line-height: 1.6; }
+details > div { padding: 0 12px 12px; font-size: 13px; color: var(--text-2); line-height: 1.6; white-space: pre-line; }
+.seg { display: flex; background: var(--surface-2); border-radius: 8px; padding: 3px; border: 0.5px solid var(--border-strong); }
+.seg > div { flex: 1; padding: 6px 10px; text-align: center; font-size: 12px; color: var(--text-2); cursor: pointer; border-radius: 6px; }
+.seg > div.on { background: var(--accent); color: #fff; }
+.date-nav { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+.date-nav button { padding: 6px 8px; font-size: 12px; }
+.date-nav .date { font-weight: 600; font-size: 14px; flex: 1; text-align: center; }
 </style>
 </head>
 <body>
@@ -181,58 +120,37 @@ details > div { padding: 0 12px 12px; font-size: 13px; color: var(--text-2); lin
   <div id="view-lifts" class="view hide"></div>
   <div id="view-food" class="view hide"></div>
   <div id="view-body" class="view hide"></div>
+  <div id="view-history" class="view hide"></div>
   <div id="view-plan" class="view hide"></div>
 </div>
-
-<nav class="tabs">
-  <div class="tab active" data-tab="today" onclick="switchTab('today')">
-    <svg class="ico" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4M20 12v6a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-    Today
-  </div>
-  <div class="tab" data-tab="lifts" onclick="switchTab('lifts')">
-    <svg class="ico" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l4 4M14 14l4 4M4 12h4M16 12h4"/></svg>
-    Lifts
-  </div>
-  <div class="tab" data-tab="food" onclick="switchTab('food')">
-    <svg class="ico" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M6 6l12 12M18 6L6 18"/></svg>
-    Food
-  </div>
-  <div class="tab" data-tab="body" onclick="switchTab('body')">
-    <svg class="ico" viewBox="0 0 24 24"><path d="M12 2a3 3 0 100 6 3 3 0 000-6zM6 22v-7h3v7M15 22v-7h3v7M9 15v-4l-3-3M15 15v-4l3-3"/></svg>
-    Body
-  </div>
-  <div class="tab" data-tab="plan" onclick="switchTab('plan')">
-    <svg class="ico" viewBox="0 0 24 24"><path d="M8 2v4M16 2v4M3 10h18M5 6h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2z"/></svg>
-    Week
-  </div>
+<nav class="tabs" id="nav-tabs">
+  <div class="tab active" data-tab="today"><svg class="ico" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4M20 12v6a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>Today</div>
+  <div class="tab" data-tab="lifts"><svg class="ico" viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M2 12l4-4 4 4-4 4zm20 0l-4-4-4 4 4 4z"/></svg>Lifts</div>
+  <div class="tab" data-tab="food"><svg class="ico" viewBox="0 0 24 24"><path d="M3 11h18M5 11V7a7 7 0 0114 0v4M3 11l2 10h14l2-10"/></svg>Food</div>
+  <div class="tab" data-tab="body"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.5"/><path d="M12 8v8M8 22l2-6 2 2 2-2 2 6M8 12h8"/></svg>Body</div>
+  <div class="tab" data-tab="history"><svg class="ico" viewBox="0 0 24 24"><path d="M12 8v5l3 2M3 12a9 9 0 109-9 9 9 0 00-7 3.5L3 9"/></svg>History</div>
+  <div class="tab" data-tab="plan"><svg class="ico" viewBox="0 0 24 24"><path d="M8 2v4M16 2v4M3 10h18M5 6h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2z"/></svg>Plan</div>
 </nav>
-
 <div id="toast" class="toast"></div>
-
+<input type="file" id="import-file" class="hide" accept="application/json">
 <script>
-const STORE_KEY = 'hat_data_v1';
+(function() {
+'use strict';
 
-function loadData() {
-  try {
-    const raw = localStorage.getItem(STORE_KEY);
-    if (raw) return JSON.parse(raw);
-  } catch(e) {}
+const STORE_KEY = 'hat_data_v5';
+
+function defaultData() {
   return {
-    settings: {
-      bodyweight_lb: 127, height_cm: 157, age: 22, unit: 'lb',
-      kcal_target: 2250, protein_target: 130, carbs_target: 285, fat_target: 55,
-      lifts_baseline: { bench: 110, squat: 120, pullup: 20, rdl: 110, ohp: 60 }
-    },
-    workouts: {},
-    food: {},
-    weight: {},
-    cycle: {},
-    notes: {},
+    settings: { bodyweight_kg: 57.5, height_cm: 157, age: 22, unit: 'lb',
+      kcal_target: 2300, protein_target: 130, carbs_target: 290, fat_target: 60, avg_cycle_days: 28 },
+    workouts: {}, food: {}, weight: {}, cycle: {}, notes: {}, runs: {},
+    oc_tests: [], oc150_tests: [],
     custom_foods: [
       {name:"Oatmeal 80g dry", kcal:310, p:11, c:55, f:6},
       {name:"Banana (medium)", kcal:105, p:1, c:27, f:0},
       {name:"Peanut butter 1 tbsp", kcal:95, p:4, c:3, f:8},
       {name:"Egg (large)", kcal:72, p:6, c:0, f:5},
+      {name:"Chicken breast 100g raw", kcal:110, p:23, c:0, f:2},
       {name:"Chicken thigh 100g raw", kcal:120, p:18, c:0, f:5},
       {name:"White rice 70g dry", kcal:255, p:5, c:56, f:0},
       {name:"Greek yogurt 170g", kcal:100, p:17, c:6, f:0},
@@ -244,117 +162,137 @@ function loadData() {
       {name:"Sweet potato medium", kcal:115, p:2, c:27, f:0},
       {name:"Bread whole grain slice", kcal:80, p:4, c:14, f:1},
       {name:"Milk 250ml (2%)", kcal:122, p:8, c:12, f:5},
-      {name:"Tuna canned water 1 can", kcal:110, p:26, c:0, f:1}
+      {name:"Tuna canned water 1 can", kcal:110, p:26, c:0, f:1},
+      {name:"Cottage cheese 150g", kcal:120, p:18, c:4, f:4},
+      {name:"Dumpling (pork, ~1)", kcal:45, p:2, c:5, f:2},
+      {name:"Congee bowl plain", kcal:135, p:3, c:29, f:0.5},
+      {name:"Stir-fry veg 150g", kcal:70, p:3, c:10, f:3},
     ]
   };
 }
 
-function saveData() {
-  try { localStorage.setItem(STORE_KEY, JSON.stringify(DATA)); }
-  catch(e) { toast('Storage error — data may not save'); }
+function loadData() {
+  try {
+    const raw = localStorage.getItem(STORE_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (!parsed.settings) parsed.settings = defaultData().settings;
+      if (!parsed.settings.unit) parsed.settings.unit = 'lb';
+      // One-time migration: first v5 revision defaulted to kg; switch existing users to lb once
+      if (!parsed.settings._lb_default_applied) {
+        parsed.settings.unit = 'lb';
+        parsed.settings._lb_default_applied = true;
+      }
+      if (!parsed.custom_foods) parsed.custom_foods = defaultData().custom_foods;
+      if (!parsed.workouts) parsed.workouts = {};
+      if (!parsed.food) parsed.food = {};
+      if (!parsed.weight) parsed.weight = {};
+      if (!parsed.cycle) parsed.cycle = {};
+      if (!parsed.notes) parsed.notes = {};
+      if (!parsed.runs) parsed.runs = {};
+      if (!parsed.oc_tests) parsed.oc_tests = [];
+      if (!parsed.oc150_tests) parsed.oc150_tests = [];
+      return parsed;
+    }
+  } catch(e) { console.error('Load error', e); }
+  return defaultData();
 }
 
 let DATA = loadData();
+function saveData() { try { localStorage.setItem(STORE_KEY, JSON.stringify(DATA)); } catch(e) { toast('Storage error'); } }
 
-function today() {
-  const d = new Date();
-  return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+function toDisplayWeight(kg) {
+  if (kg === null || kg === undefined || isNaN(kg)) return '';
+  return DATA.settings.unit === 'lb' ? (kg * 2.20462).toFixed(1) : kg.toFixed(1);
+}
+function fromDisplayWeight(val) {
+  const n = parseFloat(val); if (isNaN(n)) return null;
+  return DATA.settings.unit === 'lb' ? n / 2.20462 : n;
+}
+function unitLabel() { return DATA.settings.unit; }
+function toLiftDisplay(kg) {
+  if (!kg) return '';
+  return DATA.settings.unit === 'lb' ? Math.round(kg * 2.20462 * 2) / 2 : Math.round(kg * 2) / 2;
+}
+function fromLiftDisplay(val) {
+  const n = parseFloat(val); if (isNaN(n)) return null;
+  return DATA.settings.unit === 'lb' ? n / 2.20462 : n;
 }
 
-function dateStr(d) {
-  return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
-}
+function today() { return dateStr(new Date()); }
+function dateStr(d) { return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0'); }
+function parseDate(s) { const [y,m,d] = s.split('-').map(Number); return new Date(y, m-1, d); }
+function daysAgo(n) { const d = new Date(); d.setDate(d.getDate() - n); return dateStr(d); }
+function daysBetween(a, b) { return Math.round((parseDate(b) - parseDate(a)) / 86400000); }
+function formatDayMD(d) { return String(d.getMonth()+1) + '/' + String(d.getDate()); }
+function toast(msg, ms=1800) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), ms); }
 
-function parseDate(s) {
-  const [y,m,d] = s.split('-').map(Number);
-  return new Date(y, m-1, d);
-}
-
-function daysAgo(n) {
-  const d = new Date();
-  d.setDate(d.getDate() - n);
-  return dateStr(d);
-}
-
-function toast(msg, ms=1800) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), ms);
-}
+const PHASES = [
+  { id: 'p1', start: '2026-04-23', end: '2026-04-29', name: 'P1 · Pre-China calibration', cal: 2300, protein: 130,
+    desc: 'Test food tracking. Eat maintenance. 1 gym upper, 1 gym lower, 1 easy run, 1 quality run, 1 mobility. DO NOT start a cut this week.' },
+  { id: 'p2', start: '2026-04-30', end: '2026-05-28', name: 'P2 · China (disrupted)', cal: 2200, protein: 120,
+    desc: 'Maintenance only. 2–3 full-body sessions + 2–3 runs. Protect strength, protect aerobic base, do not gain fat. Adjust end date when return is known.' },
+  { id: 'p3', start: '2026-05-29', end: '2026-07-12', name: 'P3 · Summer DB start', cal: 2350, protein: 135,
+    desc: '5 DB + 2 OC + 2 gym + 1 long run + 1 REST. Strength: build slowly. Eat at maintenance. Body will lean out from volume alone.' },
+  { id: 'p4', start: '2026-07-13', end: '2026-08-30', name: 'P4 · Marathon build + OC peak prep', cal: 2400, protein: 135,
+    desc: 'Long run builds to 24km. OC intervals race-specific. Gym: hold numbers. Add 300 kcal on long run days.' },
+  { id: 'p5', start: '2026-08-31', end: '2026-09-27', name: 'P5 · Peak', cal: 2450, protein: 140,
+    desc: 'Race-pace OC sets. Long runs 26–30km. Gym drops to 3×5 maintenance. Fuel the work.' },
+  { id: 'p6', start: '2026-09-28', end: '2026-10-31', name: 'P6 · Race month', cal: 2400, protein: 140,
+    desc: 'Taper. Marathon + selection camp. Carb-load 48h pre-marathon. Eat to perform. Full recovery week after races.' },
+  { id: 'p7', start: '2026-11-01', end: '2027-02-28', name: 'P7 · Lean cut', cal: 1850, protein: 145,
+    desc: 'NOW the cut. ~400 kcal deficit. 3 lifts + 2 runs/paddle + walk volume. Expect ~0.4 kg/wk. 12–14 weeks to visible leanness.' },
+];
 
 function currentPhase() {
   const t = today();
-  if (t < '2026-04-26') return 'phase_1';
-  if (t < '2026-05-21') return 'phase_2';
-  if (t < '2026-07-07') return 'phase_3';
-  if (t < '2026-08-25') return 'phase_4';
-  if (t < '2026-09-29') return 'phase_5';
-  if (t < '2026-11-01') return 'phase_6';
-  return 'phase_7';
-}
-
-function phaseInfo(p) {
-  return ({
-    phase_1: {name: 'Phase 1 — Pre-China fix', end: '2026-04-25', cal: 2250, desc: 'Rest of this week. Quality sessions, full calories.'},
-    phase_2: {name: 'Phase 2 — China travel', end: '2026-05-21', cal: 2100, desc: 'Maintenance. 3x/week full body. Walk daily.'},
-    phase_3: {name: 'Phase 3 — DB adaptation + strength', end: '2026-07-06', cal: 2285, desc: 'Hit strength targets while absorbing paddle load.'},
-    phase_4: {name: 'Phase 4 — DB peak + marathon base', end: '2026-08-24', cal: 2300, desc: 'Build long run, hold strength.'},
-    phase_5: {name: 'Phase 5 — Race peak', end: '2026-09-28', cal: 2350, desc: 'Maximum fitness, begin taper.'},
-    phase_6: {name: 'Phase 6 — Race month', end: '2026-10-31', cal: 2400, desc: 'Taper, marathon, selection camp. Fuel to race.'},
-    phase_7: {name: 'Phase 7 — Aesthetic cut', end: '2027-02-28', cal: 1850, desc: 'Deficit 350 kcal. Reveal physique.'}
-  })[p];
+  for (const p of PHASES) { if (t >= p.start && t <= p.end) return p; }
+  if (t < PHASES[0].start) return PHASES[0];
+  return PHASES[PHASES.length - 1];
 }
 
 function sessionForDay(date) {
-  const phase = currentPhase();
-  const d = parseDate(date);
-  const dow = d.getDay();
-
-  if (phase === 'phase_1') {
+  const phase = PHASES.find(p => date >= p.start && date <= p.end) || currentPhase();
+  const dow = parseDate(date).getDay();
+  if (phase.id === 'p1') {
     if (date === '2026-04-23') return 'p1_upper';
-    if (date === '2026-04-24') return 'p1_run';
+    if (date === '2026-04-24') return 'p1_run_easy';
     if (date === '2026-04-25') return 'rest';
     if (date === '2026-04-26') return 'p1_lower';
+    if (date === '2026-04-27') return 'p1_run_quality';
+    if (date === '2026-04-28') return 'rest';
+    if (date === '2026-04-29') return 'p1_mobility';
     return 'rest';
   }
-  if (phase === 'phase_2') {
+  if (phase.id === 'p2') {
     if (dow === 1) return 'p2_upper';
-    if (dow === 4) return 'p2_lower';
-    if (dow === 6) return 'p2_cond';
+    if (dow === 2) return 'p2_run_tempo';
+    if (dow === 3) return 'p2_lower';
+    if (dow === 4) return 'p2_run_easy';
+    if (dow === 5) return 'p2_full_body';
+    if (dow === 6) return 'p2_run_long';
     return 'rest';
   }
-  if (phase === 'phase_3') {
-    if (dow === 1) return 'db_double';
-    if (dow === 2) return 'oc_intervals_am_upper_pm';
-    if (dow === 3) return 'db_practice';
-    if (dow === 4) return 'db_practice';
-    if (dow === 5) return 'lower';
-    if (dow === 6) return 'db_am_oc_pm';
-    if (dow === 0) return 'rest_or_upper_b_light';
-  }
-  if (phase === 'phase_4') {
-    if (dow === 1) return 'db_double';
-    if (dow === 2) return 'oc_intervals_am_upper_pm';
-    if (dow === 3) return 'db_practice';
-    if (dow === 4) return 'db_practice';
-    if (dow === 5) return 'lower';
-    if (dow === 6) return 'db_am_oc_pm';
+  if (phase.id === 'p3' || phase.id === 'p4') {
+    if (dow === 1) return 'summer_mon';
+    if (dow === 2) return 'summer_tue';
+    if (dow === 3) return 'summer_wed';
+    if (dow === 4) return 'summer_thu';
+    if (dow === 5) return 'rest_full';
+    if (dow === 6) return 'summer_sat';
     if (dow === 0) return 'long_run';
   }
-  if (phase === 'phase_5') {
-    if (dow === 1) return 'db_double';
-    if (dow === 2) return 'oc_race_pace_am_upper_pm';
-    if (dow === 3) return 'db_practice';
-    if (dow === 4) return 'tempo_or_oc_test';
-    if (dow === 5) return 'lower_light';
-    if (dow === 6) return 'db_am_oc_race_pm';
+  if (phase.id === 'p5') {
+    if (dow === 1) return 'peak_mon';
+    if (dow === 2) return 'peak_tue';
+    if (dow === 3) return 'summer_wed';
+    if (dow === 4) return 'peak_thu';
+    if (dow === 5) return 'rest_full';
+    if (dow === 6) return 'peak_sat';
     if (dow === 0) return 'long_run';
   }
-  if (phase === 'phase_6') {
-    return 'race_taper';
-  }
-  if (phase === 'phase_7') {
+  if (phase.id === 'p6') return 'race_month';
+  if (phase.id === 'p7') {
     if (dow === 1) return 'cut_lower';
     if (dow === 2) return 'cut_z2';
     if (dow === 3) return 'cut_upper_a';
@@ -366,251 +304,299 @@ function sessionForDay(date) {
   return 'rest';
 }
 
+let VIEWING_DATE = today();
+
+// Infer input type for an exercise: strength | bw | hold | run | time | check
+function exerciseType(ex) {
+  if (ex.type) return ex.type;
+  const n = ex.name.toLowerCase();
+  const hint = (ex.hint || '').toLowerCase();
+  // Check type: warmups, cooldowns, paddle practice (just a done toggle + notes)
+  if (n.includes('warmup') || n.includes('warm-up')) return 'check';
+  if (n.includes('cooldown') || n.includes('cool-down')) return 'check';
+  if (n.includes('db practice')) return 'check';
+  // Hold type: plank, hollow — or any exercise where hint says "seconds"
+  if (hint.includes('second')) return 'hold';
+  if (n.includes('plank')) return 'hold';
+  if (n === 'hollow hold') return 'hold';
+  // Run type
+  if (n.includes('run') || n.includes('tempo') || n.includes('fartlek')) return 'run';
+  // OC time-trial / interval type (OC + distance or × or "test")
+  if (n.startsWith('oc ') && /\d+\s*m|×|test/i.test(ex.name)) return 'time';
+  // Bodyweight list
+  const bwList = ['push-up', 'inverted row', 'cat-cow', 'dead bug', "world's greatest",
+                  '90/90', 'thoracic windmill', 'hanging knee raise', 'hanging leg raise',
+                  'single-leg hip thrust'];
+  // Pull-up (without "weighted") is bw; weighted pull-up is strength
+  if (!n.includes('weighted') && n.includes('pull-up')) return 'bw';
+  for (const bw of bwList) if (n.includes(bw)) return 'bw';
+  return 'strength';
+}
+
+const COOLDOWN = {
+  strength: '2–3 min easy walk or bike. Then hold each 30s:\n• Couch stretch (per leg) — hip flexor / quad\n• Pigeon or figure-4 (per side) — glute\n• Door-frame pec stretch (per side)\n• Child\'s pose with side reach (per side)\n• Cat-cow ×10 slow\nFinish: 4 slow nasal breaths, 4s in / 6s out.',
+  run: '2–3 min walk. Then hold 30s each:\n• Standing quad (per leg)\n• Standing hamstring (per leg)\n• Calf on wall (per leg, 2 positions: straight + bent knee)\n• Hip flexor lunge (per side)\n• Standing figure-4 glute (per side)\n• 10 ankle circles each direction',
+  paddle: '5 min easy paddle or walk. Then hold 30s each:\n• Doorway chest stretch (per side)\n• Cross-body shoulder (per side)\n• Lat stretch overhead lean (per side)\n• Seated spinal twist (per side)\n• Wrist flexor + extensor\n• Neck side stretch (per side)',
+  mobility: 'This IS your mobility day — routine covers cooldown.'
+};
+
 const SESSIONS = {
+  rest: { name: 'Rest day', duration: 0, cooldown: null, note: 'Sleep ≥8h, protein-anchored meals, walk 6–8k steps. Recovery is where adaptation happens. Light mobility if you want — nothing hard.' },
+  rest_full: { name: 'Full rest (Friday)', duration: 0, cooldown: null, note: 'NON-NEGOTIABLE during DB season. Your body assembles everything you\'ve trained on rest days. Walk if you want, no structured exercise.' },
   p1_upper: {
-    name: 'Upper — Strength + finisher',
-    duration: 60,
-    warmup: '3min row → band pull-aparts ×15 → dislocates ×10 → push-up ×10 → empty bar ×10 → 90lb ×5 → 100lb ×3',
+    name: 'Upper — strength baseline', duration: 50, cooldown: 'strength',
+    warmup: '3 min row → band pull-aparts ×15 → shoulder dislocates ×10 → push-ups ×10 → empty bar ×10 → bar + 20kg ×5',
     exercises: [
-      {name:'Bench press', sets:5, reps:5, progression:'linear', hint:'Target 115lb if 110lb was clean last cycle'},
-      {name:'Weighted pull-up', sets:4, reps:4, progression:'linear', hint:'Target +22.5lb if +20lb was clean'},
-      {name:'Standing OHP', sets:3, reps:6},
+      {name:'Bench press', sets:5, reps:5, hint:'Use 50 kg (110 lb) — your known 5×5. Log RPE.'},
+      {name:'Weighted pull-up', sets:4, reps:4, hint:'+9 kg (+20 lb). Add band if fried.'},
+      {name:'OHP (barbell or DB)', sets:3, reps:6, hint:'Start 25 kg / 55 lb'},
       {name:'Single-arm DB row', sets:3, reps:10, hint:'Per arm'},
-      {name:'Incline DB press', sets:3, reps:10},
       {name:'Face pulls', sets:3, reps:15}
-    ],
-    finisher: '8-min AMRAP: 10 DB thrusters → 10 renegade rows (5/side) → 15 hanging knee raises → 10 push-ups. LOG YOUR ROUNDS.'
+    ]
   },
-  p1_run: {
-    name: 'Interval run',
-    duration: 45,
-    warmup: '5min easy + A-skips/high-knees + 4×20s strides',
-    exercises: [
-      {name:'6×800m @ 5k pace', sets:6, reps:1, hint:'Target 4:00-4:10 per 800. 2min walk between.'}
-    ],
-    finisher: '3 rounds 45s work/15s rest: hollow hold → side plank L → side plank R → hanging leg raises'
+  p1_run_easy: {
+    name: 'Easy run (Z2)', duration: 35, cooldown: 'run',
+    note: '30–35 min conversational pace. If you can\'t talk in full sentences, slow down.',
+    exercises: [{name:'Easy run (km)', sets:1, reps:1, hint:'~5–6 km easy at 7:00–7:30/km'}]
   },
   p1_lower: {
-    name: 'Lower — Strength + finisher',
-    duration: 55,
-    warmup: '3min bike → leg swings → bodyweight squat ×15 → glute bridge ×15 → walking lunge ×10/leg → empty bar ×10 → 90lb ×5',
+    name: 'Lower — strength baseline', duration: 50, cooldown: 'strength',
+    warmup: '3 min bike → leg swings ×10/side → bodyweight squat ×15 → glute bridge ×15 → empty bar ×10',
     exercises: [
-      {name:'Back squat', sets:5, reps:5, progression:'linear', hint:'Establish ceiling — start 110lb, push higher if clean'},
-      {name:'Romanian deadlift', sets:4, reps:6, hint:'Start 110lb, push to 120 if clean'},
-      {name:'Bulgarian split squat', sets:3, reps:8, hint:'Per leg, 25lb DBs'},
-      {name:'Barbell hip thrust', sets:3, reps:10},
+      {name:'Back squat', sets:5, reps:5, hint:'Start 40 kg, feel it out. Find working 5×5 weight.'},
+      {name:'Romanian deadlift', sets:4, reps:6, hint:'~45–50 kg'},
+      {name:'Bulgarian split squat', sets:3, reps:8, hint:'Per leg, 10 kg DBs'},
+      {name:'Hip thrust', sets:3, reps:10},
       {name:'Standing calf raise', sets:3, reps:15}
-    ],
-    finisher: '4 rounds: 40m farmer carry (45lb DBs) → 15 goblet squats (35lb) → 10 DB RDLs → 30s plank'
+    ]
+  },
+  p1_run_quality: {
+    name: 'Quality run (moderate)', duration: 40, cooldown: 'run',
+    warmup: '10 min easy + 4×20s strides',
+    exercises: [{name:'Tempo block', sets:1, reps:1, hint:'3 km at ~5:45–6:00/km, 5 min easy, repeat 1× if fresh'}]
+  },
+  p1_mobility: {
+    name: 'Mobility + core (pre-travel reset)', duration: 30, cooldown: null,
+    note: 'Loosen hips/shoulders for the flight, prime core.',
+    exercises: [
+      {name:'World\'s greatest stretch', sets:2, reps:5, hint:'Per side, slow'},
+      {name:'90/90 hip switches', sets:2, reps:10, hint:'Per side'},
+      {name:'Cat-cow', sets:2, reps:10},
+      {name:'Thoracic windmill', sets:2, reps:8, hint:'Per side'},
+      {name:'Dead bug', sets:3, reps:8, hint:'Per side, slow'},
+      {name:'Side plank', sets:2, reps:30, hint:'Seconds per side'},
+      {name:'Hollow hold', sets:3, reps:20, hint:'Seconds'}
+    ]
   },
   p2_upper: {
-    name: 'Upper body (travel)',
-    duration: 45,
-    warmup: '5min + band pull-aparts + push-up ×10',
+    name: 'Upper (travel-friendly)', duration: 40, cooldown: 'strength',
+    warmup: '5 min + band pull-aparts + push-ups ×10',
+    note: 'MAINTAIN. No PRs. 85% of home weights.',
     exercises: [
-      {name:'Bench press or DB bench', sets:5, reps:5, hint:'85% of home max — maintain not PR'},
-      {name:'Weighted pull-up', sets:4, reps:4, hint:'Volume work, not max'},
-      {name:'DB row', sets:4, reps:8, hint:'Per arm'},
-      {name:'DB overhead press', sets:3, reps:8},
+      {name:'Bench press', sets:4, reps:6, hint:'~85% of home numbers'},
+      {name:'Pull-up', sets:4, reps:5, hint:'Band if needed'},
+      {name:'DB row', sets:3, reps:8, hint:'Per arm'},
+      {name:'OHP (barbell or DB)', sets:3, reps:8},
       {name:'Face pulls (band)', sets:3, reps:15},
-      {name:'Hanging leg raise', sets:3, reps:10}
+      {name:'Hanging knee raise or dead bug', sets:3, reps:10}
     ]
   },
   p2_lower: {
-    name: 'Lower body (travel)',
-    duration: 45,
-    warmup: '5min bike + leg swings + bodyweight squat ×15',
+    name: 'Lower (travel-friendly)', duration: 40, cooldown: 'strength',
+    warmup: '5 min bike/walk + leg swings + bodyweight squat ×15',
     exercises: [
-      {name:'Squat (goblet if no barbell)', sets:5, reps:5, hint:'85% intensity'},
-      {name:'Romanian deadlift', sets:4, reps:6},
+      {name:'Back squat', sets:4, reps:6, hint:'Goblet if no barbell'},
+      {name:'Romanian deadlift', sets:4, reps:8},
+      {name:'Bulgarian split squat', sets:3, reps:8},
+      {name:'Hip thrust', sets:3, reps:12},
+      {name:'Standing calf raise', sets:3, reps:15}
+    ]
+  },
+  p2_full_body: {
+    name: 'Full body (hotel backup)', duration: 30, cooldown: 'strength',
+    note: '3 rounds, 60s rest between rounds.',
+    exercises: [
+      {name:'Push-ups', sets:3, reps:12},
+      {name:'Bulgarian split squat', sets:3, reps:10, hint:'Per leg'},
+      {name:'Inverted row (table or bar)', sets:3, reps:10},
+      {name:'Single-leg hip thrust', sets:3, reps:10, hint:'Per leg'},
+      {name:'Plank', sets:3, reps:45, hint:'Seconds'},
+      {name:'Hollow hold', sets:3, reps:20, hint:'Seconds'}
+    ]
+  },
+  p2_run_easy: {
+    name: 'Easy run', duration: 35, cooldown: 'run',
+    note: 'If AQI > 150, swap for hotel gym.',
+    exercises: [{name:'Easy run (km)', sets:1, reps:1, hint:'5–6 km conversational'}]
+  },
+  p2_run_tempo: {
+    name: 'Tempo fartlek', duration: 30, cooldown: 'run',
+    warmup: '10 min easy',
+    exercises: [{name:'Fartlek 1-on/1-off', sets:10, reps:1, hint:'10 × (1 min hard / 1 min easy)'}]
+  },
+  p2_run_long: {
+    name: 'Long run (moderate)', duration: 60, cooldown: 'run',
+    exercises: [{name:'Long run (km)', sets:1, reps:1, hint:'8–10 km easy. Keeps aerobic base.'}]
+  },
+  summer_mon: {
+    name: 'Gym Upper + DB PM', duration: 60, cooldown: 'strength',
+    warmup: '3 min row → pull-aparts ×15 → scap pulls ×8 → push-ups ×10 → bar only ×10',
+    note: 'DB practice in the evening. Leave 2 reps in tank on every top set.',
+    exercises: [
+      {name:'Bench press', sets:4, reps:5, hint:'+1–2 kg/month progression in P3'},
+      {name:'Weighted pull-up', sets:4, reps:4, hint:'Progressive overload'},
+      {name:'OHP (barbell or DB)', sets:3, reps:6},
+      {name:'Chest-supported row', sets:3, reps:8},
+      {name:'Face pulls', sets:3, reps:15},
+      {name:'Pallof press', sets:3, reps:10, hint:'Per side'}
+    ]
+  },
+  summer_tue: {
+    name: 'OC intervals AM + DB PM', duration: 45, cooldown: 'paddle',
+    note: 'HARD DAY — two water sessions. Eat 2500+ kcal today. OC AM is THE key 330m stimulus.',
+    exercises: [
+      {name:'OC warmup', sets:1, reps:1, hint:'10 min easy paddle + 4×20s builds'},
+      {name:'OC 6×200m @ 330m pace', sets:6, reps:1, hint:'~1:10 per 200m. 2 min rest. Lactate tolerance.'},
+      {name:'OC cooldown', sets:1, reps:1, hint:'10 min easy'}
+    ]
+  },
+  summer_wed: {
+    name: 'DB practice only', duration: 90, cooldown: 'paddle',
+    note: 'Recovery day from Tuesday double. DB only. Log any times or notes.'
+  },
+  summer_thu: {
+    name: 'Gym Lower + DB PM', duration: 60, cooldown: 'strength',
+    warmup: '3 min bike → leg swings → bodyweight squat ×15 → glute bridge ×15 → empty bar ×10',
+    note: 'DB tonight. Lower at 75% effort — don\'t blow out legs.',
+    exercises: [
+      {name:'Back squat', sets:4, reps:5, hint:'Progressive overload'},
+      {name:'Romanian deadlift', sets:3, reps:6},
       {name:'Bulgarian split squat', sets:3, reps:8},
       {name:'Hip thrust', sets:3, reps:10},
       {name:'Standing calf raise', sets:3, reps:15},
-      {name:'Pallof press (band)', sets:3, reps:10}
+      {name:'Side plank', sets:2, reps:45, hint:'Seconds per side'}
     ]
   },
-  p2_cond: {
-    name: 'Conditioning (travel)',
-    duration: 30,
-    warmup: '5min easy jog',
+  summer_sat: {
+    name: 'DB practice + OC sprints', duration: 120, cooldown: 'paddle',
+    note: 'After DB, 20 min OC sprint work. Alactic power for 150m.',
     exercises: [
-      {name:'Choose: 30-45min Z2 run OR 20min fartlek (1on/1off ×10)', sets:1, reps:1}
-    ]
-  },
-  upper_a: {
-    name: 'Upper A — Bench focus',
-    duration: 60,
-    warmup: '3min row → band pull-aparts ×15 → dislocates ×10 → scap pull-ups ×8 → push-up ×10 → bar bench ×10 → 90lb ×5',
-    exercises: [
-      {name:'Bench press', sets:5, reps:5, progression:'linear'},
-      {name:'Overhead press (barbell)', sets:4, reps:6},
-      {name:'Incline DB press', sets:3, reps:10},
-      {name:'Pendlay row', sets:4, reps:6},
-      {name:'Face pulls', sets:3, reps:15},
-      {name:'Pallof press', sets:3, reps:10},
-      {name:'Hanging knee raise', sets:3, reps:12}
-    ]
-  },
-  upper_b: {
-    name: 'Upper B — Pull focus',
-    duration: 60,
-    warmup: '3min row → pull-aparts → scap pulls → light pull-ups ×5 → dead hang 20s',
-    exercises: [
-      {name:'Weighted pull-up', sets:5, reps:5, progression:'linear'},
-      {name:'Chest-supported row', sets:4, reps:8},
-      {name:'Lat pulldown (neutral)', sets:3, reps:10},
-      {name:'DB bench press', sets:3, reps:10},
-      {name:'EZ bar curl', sets:3, reps:12},
-      {name:'Tricep pushdown', sets:3, reps:12},
-      {name:'Weighted plank', sets:3, reps:45, hint:'seconds'}
-    ]
-  },
-  lower: {
-    name: 'Lower — Squat focus',
-    duration: 60,
-    warmup: '3min bike → leg swings → bodyweight squat ×15 → glute bridge ×15 → empty bar ×10 → 90lb ×5',
-    exercises: [
-      {name:'Back squat', sets:5, reps:5, progression:'linear'},
-      {name:'Romanian deadlift', sets:4, reps:6},
-      {name:'Bulgarian split squat', sets:3, reps:8},
-      {name:'Barbell hip thrust', sets:3, reps:10},
-      {name:'Standing calf raise', sets:3, reps:15},
-      {name:'Side plank', sets:3, reps:45},
-      {name:'Dead bug', sets:3, reps:10}
-    ]
-  },
-  db_practice: {name:'Dragon boat practice', duration:90, note:'Log paddle session. Record any personal times or notes.'},
-  db_double: {name:'Dragon boat DOUBLE (AM+PM)', duration:180, note:'Rest day for gym and OC. Focus on fueling — 2450 kcal target, 135g protein. Hydrate aggressively.'},
-  db_practice_run: {name:'DB practice + easy run', duration:120, note:'Easy 30min run AM (Z2), paddle PM. Skip run if legs fried.'},
-  db_am_oc_pm: {
-    name: 'DB AM + OC PM',
-    duration: 150,
-    note: 'HARD DAY. Two water sessions. Fuel with 2400+ kcal. Hydrate aggressively. OC PM is race-specific — see exercises.',
-    exercises: [
-      {name:'DB practice AM', sets:1, reps:1, hint:'Log club session'},
-      {name:'OC 330m time trial', sets:1, reps:1, hint:'BENCHMARK — PR 1:57. Realistic target 1:53. Stretch 1:50.'},
-      {name:'OC 150m sprint', sets:3, reps:1, hint:'3×150m all-out, 3min rest. Log each split.'}
-    ]
-  },
-  oc_intervals_am_upper_pm: {
-    name: 'OC intervals AM + Upper A PM',
-    duration: 150,
-    warmup: 'OC: 10min easy paddle + 4×20s builds. Upper: standard.',
-    note: 'OC AM is intervals focused on 330m energy system. Upper PM is full Upper A (bench focus). Eat big between sessions.',
-    exercises: [
-      {name:'OC warmup (min)', sets:1, reps:1, hint:'10min easy paddle'},
-      {name:'OC 6×200m @ 330m pace', sets:6, reps:1, hint:'Target ~1:10 per 200m. 2min rest between. Builds lactate tolerance for 330m.'},
-      {name:'OC cooldown (min)', sets:1, reps:1, hint:'10min easy'},
-      {name:'Bench press', sets:5, reps:5, progression:'linear'},
-      {name:'Overhead press (barbell)', sets:4, reps:6},
-      {name:'Incline DB press', sets:3, reps:10},
-      {name:'Pendlay row', sets:4, reps:6},
-      {name:'Face pulls', sets:3, reps:15},
-      {name:'Pallof press', sets:3, reps:10},
-      {name:'Hanging knee raise', sets:3, reps:12}
-    ]
-  },
-  oc_race_pace_am_upper_pm: {
-    name: 'OC race-pace AM + Upper A (reduced) PM',
-    duration: 150,
-    note: 'PEAK PHASE. OC race-pace work, gym volume drops. Eat big.',
-    exercises: [
-      {name:'OC warmup (min)', sets:1, reps:1, hint:'10min easy'},
-      {name:'OC 4×330m @ race pace', sets:4, reps:1, hint:'Goal pace 1:52-1:53. 4min rest. This IS the race simulation.'},
-      {name:'OC cooldown (min)', sets:1, reps:1, hint:'10min easy'},
-      {name:'Bench press', sets:3, reps:5, hint:'HOLD weight, do not PR'},
-      {name:'Overhead press', sets:3, reps:6},
-      {name:'Pendlay row', sets:3, reps:6},
-      {name:'Face pulls', sets:3, reps:15}
-    ]
-  },
-  db_am_oc_race_pm: {
-    name: 'DB AM + OC race-prep PM',
-    duration: 180,
-    note: 'PEAK — race simulation day.',
-    exercises: [
-      {name:'DB practice AM', sets:1, reps:1},
-      {name:'OC 330m TEST', sets:1, reps:1, hint:'Every 2 weeks: full-effort 330m time trial. Log the time.'},
-      {name:'OC 150m × 4', sets:4, reps:1, hint:'Race-pace 150s. 3min rest.'}
-    ]
-  },
-  tempo_or_oc_test: {
-    name: 'Tempo run OR OC test (pick one)',
-    duration: 45,
-    note: 'Priority: OC test if you have water access AND it\'s been 2+ weeks since last test. Otherwise tempo run.',
-    exercises: [
-      {name:'330m OC time trial (if available)', sets:1, reps:1, hint:'Full effort. Log time.'},
-      {name:'OR Tempo run block (km at HM pace)', sets:1, reps:1, hint:'4-5km at ~6:00/km'}
-    ]
-  },
-  rest_or_upper_b_light: {
-    name: 'OC technical/aerobic OR rest',
-    duration: 60,
-    note: 'Options in order of preference: (1) 45-60 min OC steady paddle focus on TECHNIQUE (catch, rotation, clean pull) — NOT max effort. (2) Full rest if tired. (3) Light Upper B only if fresh and no shoulder niggles. Pick 1.',
-    exercises: [
-      {name:'OC technical paddle (min)', sets:1, reps:1, hint:'45-60min steady pace, focus on catch timing and rotation. This is Z2 for OC.'},
-      {name:'Weighted pull-up (only if skipping OC)', sets:3, reps:5, hint:'Skip this if you paddled today'},
-      {name:'Chest-supported row (only if skipping OC)', sets:3, reps:8}
+      {name:'DB practice (club)', sets:1, reps:1, hint:'Log session'},
+      {name:'OC warmup after DB', sets:1, reps:1, hint:'5 min easy paddle'},
+      {name:'OC 150m × 4', sets:4, reps:1, hint:'Max effort. 3 min full rest.'},
+      {name:'OC 330m test (every 2 weeks)', sets:1, reps:1, hint:'Only if calm water + feeling fresh'}
     ]
   },
   long_run: {
-    name: 'Long run',
-    duration: 120,
-    note: 'Conversational pace only. Practice race fueling.',
+    name: 'Long run', duration: 120, cooldown: 'run',
+    note: 'Conversational pace ONLY. Practice race-day breakfast + mid-run fueling. See Plan tab for weekly km target.',
+    exercises: [{name:'Long run (km)', sets:1, reps:1, hint:'See Plan tab — ~10%/wk build with cutback every 4th wk'}]
+  },
+  peak_mon: {
+    name: 'Gym Upper (maintenance) + DB PM', duration: 50, cooldown: 'strength',
+    note: 'PEAK — hold, don\'t chase PRs. 3×5 not 4×5.',
     exercises: [
-      {name:'Long run (km)', sets:1, reps:1, hint:'See Plan tab for weekly target distance'}
+      {name:'Bench press', sets:3, reps:5, hint:'HOLD'},
+      {name:'Weighted pull-up', sets:3, reps:4, hint:'HOLD'},
+      {name:'OHP (barbell or DB)', sets:3, reps:6},
+      {name:'Chest-supported row', sets:3, reps:8},
+      {name:'Face pulls', sets:3, reps:15}
     ]
   },
-  tempo_run: {
-    name: 'Tempo run',
-    duration: 45,
-    warmup: '2km easy',
+  peak_tue: {
+    name: 'OC race-pace AM + DB PM', duration: 45, cooldown: 'paddle',
+    note: 'Race simulation.',
     exercises: [
-      {name:'Tempo block (km @ HM pace)', sets:1, reps:1, hint:'4-5km at half-marathon effort, ~6:00/km'}
+      {name:'OC warmup', sets:1, reps:1, hint:'10 min easy + 3 builds'},
+      {name:'OC 4×330m @ race pace', sets:4, reps:1, hint:'Target 1:52–1:53. 4 min rest. This IS the race sim.'},
+      {name:'OC cooldown', sets:1, reps:1, hint:'10 min easy'}
     ]
   },
-  upper_a_light: {name:'Upper A (reduced volume — peak phase)', duration:45, note:'Same lifts as Upper A but 3×5 instead of 5×5. HOLD weights, do not PR.'},
-  lower_light: {name:'Lower (reduced volume — peak phase)', duration:45, note:'Same lifts as Lower but 3×5 instead of 5×5. HOLD weights.'},
-  race_taper: {name:'Race month — follow taper schedule', duration:0, note:'Check Plan tab for week-specific instructions.'},
+  peak_thu: {
+    name: 'Gym Lower (maintenance) + DB PM', duration: 50, cooldown: 'strength',
+    note: 'PEAK — hold weights.',
+    exercises: [
+      {name:'Back squat', sets:3, reps:5, hint:'HOLD'},
+      {name:'Romanian deadlift', sets:3, reps:6},
+      {name:'Bulgarian split squat', sets:2, reps:8},
+      {name:'Hip thrust', sets:3, reps:10}
+    ]
+  },
+  peak_sat: {
+    name: 'DB + OC race prep', duration: 120, cooldown: 'paddle',
+    note: 'PEAK — 330m time trial every 2 weeks. 150m repeats between.',
+    exercises: [
+      {name:'DB practice', sets:1, reps:1},
+      {name:'OC 330m TEST', sets:1, reps:1, hint:'Every 2 weeks. Full effort. Log it.'},
+      {name:'OC 150m × 4 (off-weeks)', sets:4, reps:1, hint:'3 min rest'}
+    ]
+  },
+  race_month: {
+    name: 'Race month — follow taper', duration: 0, cooldown: null,
+    note: 'Open Plan tab → Race month taper. You\'re tapering, not training. Fuel up. Sleep more. Trust the work.'
+  },
   cut_lower: {
-    name: 'Cut Lower (heavy)',
-    duration: 60,
-    warmup: 'Standard',
+    name: 'Cut Lower', duration: 55, cooldown: 'strength',
     exercises: [
-      {name:'Back squat', sets:5, reps:5, progression:'linear'},
+      {name:'Back squat', sets:4, reps:6},
       {name:'Romanian deadlift', sets:4, reps:6},
-      {name:'Bulgarian split squat', sets:3, reps:8},
+      {name:'Bulgarian split squat', sets:3, reps:10},
       {name:'Hip thrust', sets:3, reps:10},
       {name:'Calf raise', sets:3, reps:15}
     ]
   },
   cut_upper_a: {
-    name: 'Cut Upper A (bench focus)',
-    duration: 60,
+    name: 'Cut Upper A (push)', duration: 55, cooldown: 'strength',
     exercises: [
-      {name:'Bench press', sets:5, reps:5, progression:'linear'},
-      {name:'Overhead press', sets:4, reps:6},
+      {name:'Bench press', sets:4, reps:6},
+      {name:'OHP', sets:3, reps:6},
       {name:'Incline DB press', sets:3, reps:10},
-      {name:'Pendlay row', sets:4, reps:6},
+      {name:'Row', sets:3, reps:8},
       {name:'Face pulls', sets:3, reps:15}
     ]
   },
   cut_upper_b: {
-    name: 'Cut Upper B (pull focus)',
-    duration: 60,
+    name: 'Cut Upper B (pull)', duration: 55, cooldown: 'strength',
     exercises: [
-      {name:'Weighted pull-up', sets:5, reps:5, progression:'linear'},
+      {name:'Weighted pull-up', sets:4, reps:5},
       {name:'Chest-supported row', sets:4, reps:8},
-      {name:'DB bench press', sets:3, reps:10},
-      {name:'EZ bar curl', sets:3, reps:12},
+      {name:'DB bench', sets:3, reps:10},
+      {name:'Curl', sets:3, reps:12},
       {name:'Tricep pushdown', sets:3, reps:12}
     ]
   },
-  cut_z2: {name:'Zone 2 run', duration:45, note:'45min conversational pace.'},
-  cut_hiit: {name:'HIIT / paddle', duration:30, note:'6×90s hard / 90s easy, OR paddle session, OR 30min hard row.'},
-  cut_run: {name:'Easy run', duration:40, note:'5-8km easy, or substitute long walk.'},
-  rest: {name:'Rest day', duration:0, note:'Sleep, eat, walk. Recovery is where adaptation happens.'}
+  cut_z2: { name: 'Zone 2 run', duration:45, cooldown:'run', note:'45 min conversational. Fat-adapted aerobic base.' },
+  cut_hiit: { name: 'HIIT / paddle', duration:30, cooldown:'paddle', note:'6×90s hard / 90s easy. OR paddle. OR 30 min hard row.' },
+  cut_run: { name: 'Easy run', duration:40, cooldown:'run', note:'5–8 km easy. Or 60 min brisk walk if joints need it.' }
 };
+
+const QUOTES = [
+  ['The boring lift on a tired Tuesday is what actually gets you to Nationals.', 'Mentor'],
+  ['Discipline is doing the sustainable amount when you don\'t feel like it.', 'Mentor'],
+  ['A plan you execute for 6 months beats a heroic plan for 3 weeks.', 'Mentor'],
+  ['Muscle is not the problem. The transition through muscle is uncomfortable.', 'Mentor'],
+  ['Eat. Sleep. Train. Repeat. The rest is noise.', 'Mentor'],
+  ['You cannot manage what you don\'t measure. But measure only what matters.', 'Mentor'],
+  ['The body adapts to what you do consistently, not what you do perfectly.', 'Mentor'],
+  ['Rest days build more than training days. Stop skipping them.', 'Mentor'],
+  ['Performance first through October. Aesthetics after.', 'This plan'],
+  ['Your body is not an enemy to defeat. It\'s the only one you\'ll ever have.', 'Mentor'],
+  ['Fatigue makes cowards of us all. Sleep first, doubt later.', 'Lombardi (paraphrased)'],
+  ['Consistency compounds. Intensity burns out.', 'Mentor'],
+  ['If you want to be strong, you have to train strong AND eat enough to be strong.', 'Mentor'],
+  ['The paddle rewards the patient. The marathon rewards the patient. The physique rewards the patient.', 'Mentor'],
+  ['Your worst workout done beats your best workout skipped.', 'Mentor'],
+  ['Today is the day. Not Monday. Not next week.', 'Mentor'],
+  ['Track your period like you track your lifts. Your body is giving you data.', 'Mentor'],
+  ['Train like an athlete. Eat like an athlete. Sleep like an athlete.', 'Mentor'],
+  ['A team commitment honored is a promise kept to yourself.', 'Mentor']
+];
+
+function quoteOfDay() {
+  const d = new Date();
+  const dayNum = Math.floor((d - new Date(d.getFullYear(),0,0)) / 86400000);
+  return QUOTES[dayNum % QUOTES.length];
+}
 
 function lastWeightForExercise(exName) {
   const entries = [];
@@ -619,10 +605,13 @@ function lastWeightForExercise(exName) {
     if (!w.exercises) continue;
     for (const ex of w.exercises) {
       if (ex.name === exName && ex.sets && ex.sets.length) {
-        const maxWt = Math.max(...ex.sets.filter(s=>s.weight).map(s=>s.weight));
-        const minReps = Math.min(...ex.sets.filter(s=>s.done).map(s=>s.reps || 0));
-        const allDone = ex.sets.every(s => s.done);
-        entries.push({date, weight: maxWt, minReps, allDone, sets: ex.sets});
+        const withWeight = ex.sets.filter(s => s.weight_kg);
+        if (!withWeight.length) continue;
+        const maxWt = Math.max(...withWeight.map(s => s.weight_kg));
+        const doneSets = ex.sets.filter(s => s.done);
+        const allDone = ex.sets.length > 0 && ex.sets.every(s => s.done);
+        const minReps = doneSets.length ? Math.min(...doneSets.map(s => s.reps || 0)) : 0;
+        entries.push({date, weight_kg: maxWt, minReps, allDone});
       }
     }
   }
@@ -630,437 +619,18 @@ function lastWeightForExercise(exName) {
   return entries[entries.length - 1] || null;
 }
 
-function suggestWeight(exName, targetSets, targetReps) {
+function suggestWeight(exName, targetReps) {
   const last = lastWeightForExercise(exName);
   if (!last) return null;
   if (last.allDone && last.minReps >= targetReps) {
     const n = exName.toLowerCase();
-    const inc = n.includes('bench') || n.includes('overhead') || n.includes('ohp') ? 2.5 :
-                n.includes('squat') || n.includes('deadlift') || n.includes('rdl') ? 5 :
-                n.includes('pull-up') ? 2.5 :
-                n.includes('row') ? 5 : 2.5;
-    return { weight: last.weight + inc, reason: 'last session clean — progress' };
+    const incKg = n.includes('bench') || n.includes('ohp') || n.includes('overhead') ? 1.25
+               : n.includes('squat') || n.includes('deadlift') || n.includes('rdl') || n.includes('hip thrust') ? 2.5
+               : n.includes('pull-up') ? 1.25
+               : n.includes('row') ? 2.5 : 1.25;
+    return { kg: last.weight_kg + incKg, reason: 'last clean — progress' };
   }
-  return { weight: last.weight, reason: 'last session missed reps — repeat' };
-}
-
-function switchTab(name) {
-  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
-  document.querySelectorAll('.view').forEach(v => v.classList.add('hide'));
-  document.getElementById('view-' + name).classList.remove('hide');
-  renderView(name);
-}
-
-function renderView(name) {
-  if (name === 'today') renderToday();
-  else if (name === 'lifts') renderLifts();
-  else if (name === 'food') renderFood();
-  else if (name === 'body') renderBody();
-  else if (name === 'plan') renderPlan();
-}
-
-function renderToday() {
-  const date = today();
-  const phase = currentPhase();
-  const pi = phaseInfo(phase);
-  const sessionKey = sessionForDay(date);
-  const session = SESSIONS[sessionKey] || SESSIONS.rest;
-  const dayName = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][new Date().getDay()];
-
-  const foodToday = DATA.food[date] || [];
-  const kcals = foodToday.reduce((s,f) => s + (f.kcal||0), 0);
-  const prot = foodToday.reduce((s,f) => s + (f.p||0), 0);
-  const carbs = foodToday.reduce((s,f) => s + (f.c||0), 0);
-  const fat = foodToday.reduce((s,f) => s + (f.f||0), 0);
-  const tgt = DATA.settings;
-
-  let html = `
-    <div class="hdr">
-      <div>
-        <h1>${dayName}</h1>
-        <div class="sub">${date} · ${pi.name}</div>
-      </div>
-      <span class="pill accent">${pi.cal} kcal</span>
-    </div>
-  `;
-
-  if (phase === 'phase_1') {
-    html += `<div class="warn-box">This week matters. Finish strong before China. Eat at maintenance (${pi.cal} kcal), 130g protein.</div>`;
-  }
-
-  html += `
-    <div class="card">
-      <h2>${session.name}</h2>
-      ${session.duration ? `<div class="subtitle">${session.duration} min</div>` : ''}
-      ${session.note ? `<div class="muted mb">${session.note}</div>` : ''}
-  `;
-
-  if (session.warmup) {
-    html += `<details><summary>Warmup</summary><div>${session.warmup}</div></details>`;
-  }
-
-  if (session.exercises) {
-    html += `<h3>Exercises</h3>`;
-    const workout = DATA.workouts[date] || {session: sessionKey, exercises: []};
-    session.exercises.forEach((ex, idx) => {
-      const logged = workout.exercises?.find(e => e.name === ex.name) || {sets: []};
-      const suggest = suggestWeight(ex.name, ex.sets, ex.reps);
-      html += `
-        <div class="exercise">
-          <div class="row space">
-            <div>
-              <div class="name">${ex.name}</div>
-              <div class="target">${ex.sets} × ${ex.reps} ${ex.hint && !ex.hint.includes('Per') && !ex.hint.includes('seconds') ? '' : (ex.hint || '')}</div>
-            </div>
-          </div>
-          ${suggest ? `<div class="suggest">Last: ${suggest.weight}lb · ${suggest.reason}</div>` : ''}
-          ${ex.hint && !ex.hint.includes('Per') && !ex.hint.includes('seconds') ? `<div class="muted mt">${ex.hint}</div>` : ''}
-          <div class="mt">`;
-      for (let s = 0; s < ex.sets; s++) {
-        const setData = logged.sets[s] || {};
-        html += `
-          <div class="set-row">
-            <div class="idx">${s+1}</div>
-            <input type="number" inputmode="decimal" step="2.5" placeholder="lb" value="${setData.weight||''}"
-              onchange="logSet('${date}','${sessionKey}','${ex.name.replace(/'/g,"\\'")}',${s},'weight',this.value)">
-            <input type="number" inputmode="numeric" step="1" placeholder="reps" value="${setData.reps||''}"
-              onchange="logSet('${date}','${sessionKey}','${ex.name.replace(/'/g,"\\'")}',${s},'reps',this.value)">
-            <input type="number" inputmode="numeric" step="1" min="1" max="10" placeholder="RPE" value="${setData.rpe||''}"
-              onchange="logSet('${date}','${sessionKey}','${ex.name.replace(/'/g,"\\'")}',${s},'rpe',this.value)">
-            <div class="chk ${setData.done?'done':''}" onclick="toggleSetDone('${date}','${sessionKey}','${ex.name.replace(/'/g,"\\'")}',${s})">${setData.done?'✓':''}</div>
-          </div>`;
-      }
-      html += `</div></div>`;
-    });
-  }
-
-  if (session.finisher) {
-    html += `<h3>Finisher</h3><div class="muted" style="padding: 8px 0;">${session.finisher}</div>
-      <div class="row mt">
-        <input type="text" id="finisher-note" placeholder="Log result (e.g. 4 rounds + 12 reps)"
-          value="${(DATA.workouts[date]?.finisher_note)||''}"
-          onchange="logFinisher('${date}', this.value)">
-      </div>`;
-  }
-
-  if (session.note && !session.exercises) {
-    html += `
-      <div class="mt">
-        <label>Session notes</label>
-        <textarea rows="3" placeholder="Notes (paddle times, how you felt, etc)"
-          onchange="logSessionNote('${date}','${sessionKey}',this.value)">${(DATA.workouts[date]?.session_note)||''}</textarea>
-      </div>`;
-  }
-
-  html += `</div>`;
-
-  html += `
-    <div class="card">
-      <h2>Today's food</h2>
-      <div class="grid2 mb">
-        <div class="stat">
-          <div class="label">Calories</div>
-          <div class="value num">${Math.round(kcals)}<span style="font-size:14px;color:var(--text-3)"> / ${tgt.kcal_target}</span></div>
-          <div class="prog ${kcals < tgt.kcal_target*0.9?'warn':''} ${kcals > tgt.kcal_target*1.1?'warn':''}"><div style="width:${Math.min(100,kcals/tgt.kcal_target*100)}%"></div></div>
-        </div>
-        <div class="stat">
-          <div class="label">Protein</div>
-          <div class="value num">${Math.round(prot)}<span style="font-size:14px;color:var(--text-3)"> / ${tgt.protein_target}g</span></div>
-          <div class="prog ${prot >= tgt.protein_target*0.9?'ok':''}"><div style="width:${Math.min(100,prot/tgt.protein_target*100)}%"></div></div>
-        </div>
-      </div>
-      <div class="grid2">
-        <div class="stat">
-          <div class="label">Carbs</div>
-          <div class="value num">${Math.round(carbs)}<span style="font-size:14px;color:var(--text-3)"> / ${tgt.carbs_target}g</span></div>
-        </div>
-        <div class="stat">
-          <div class="label">Fat</div>
-          <div class="value num">${Math.round(fat)}<span style="font-size:14px;color:var(--text-3)"> / ${tgt.fat_target}g</span></div>
-        </div>
-      </div>
-      <button class="full mt2 primary" onclick="switchTab('food')">+ Log food</button>
-    </div>
-  `;
-
-  const weightEntries = Object.entries(DATA.weight).sort((a,b) => a[0].localeCompare(b[0]));
-  const latest = weightEntries[weightEntries.length - 1];
-  const todayWt = DATA.weight[date];
-
-  html += `
-    <div class="card">
-      <div class="row space mb">
-        <h2>Morning weigh-in</h2>
-        ${latest ? `<span class="pill">${latest[1]}lb · ${latest[0]}</span>` : ''}
-      </div>
-      <div class="row">
-        <input type="number" step="0.2" inputmode="decimal" placeholder="${latest?latest[1]:'127'}" id="wt-input" value="${todayWt||''}">
-        <button class="primary" onclick="logWeight()">Log ${todayWt?'update':''}</button>
-      </div>
-    </div>
-  `;
-
-  const weekPreview = getWeekSchedule();
-  html += `
-    <div class="card">
-      <div class="row space mb">
-        <h2>This week</h2>
-        <button class="small" onclick="switchTab('plan')">Full plan →</button>
-      </div>
-      <div class="subtitle">${phaseInfo(phase).name.split('—')[0].trim()}</div>`;
-
-  weekPreview.forEach(d => {
-    const sess = SESSIONS[d.sessionKey] || SESSIONS.rest;
-    const isToday = d.date === today();
-    const isDone = d.status === 'done';
-    const isMissed = d.status === 'missed';
-    const isRest = d.sessionKey === 'rest';
-    const borderStyle = isToday ? 'border: 1px solid var(--accent);' : '';
-    const nameColor = isToday ? 'var(--accent)' : isDone ? 'var(--ok)' : isMissed ? 'var(--bad)' : isRest ? 'var(--text-3)' : 'var(--text)';
-    html += `
-      <div style="padding: 10px 12px; margin-top: 8px; border-radius: 8px; background: var(--surface-2); ${borderStyle}">
-        <div class="row space">
-          <div style="flex: 1; min-width: 0;">
-            <div style="font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.05em;">${d.dayLabel}</div>
-            <div style="font-weight: 500; margin-top: 2px; color: ${nameColor}; font-size: 14px;">${sess.name}</div>
-          </div>
-          ${isDone ? '<span class="pill ok">done</span>' : isToday ? '<span class="pill accent">today</span>' : isMissed ? '<span class="pill bad">miss</span>' : ''}
-        </div>
-      </div>`;
-  });
-  html += `</div>`;
-
-  document.getElementById('view-today').innerHTML = html;
-}
-
-function lastNDaysConsistency(n) {
-  const out = [];
-  const now = new Date();
-  for (let i = n - 1; i >= 0; i--) {
-    const d = new Date(now);
-    d.setDate(d.getDate() - i);
-    const ds = dateStr(d);
-    const letter = ['S','M','T','W','T','F','S'][d.getDay()];
-    const expectedSession = sessionForDay(ds);
-    const w = DATA.workouts[ds];
-    let status = '';
-    if (ds === today()) status = 'today';
-    else if (expectedSession === 'rest') status = '';
-    else if (w && (w.exercises?.some(e => e.sets.some(s => s.done)) || w.session_note || w.finisher_note)) status = 'done';
-    else if (ds < today()) status = 'missed';
-    out.push({date: ds, letter, status});
-  }
-  return out;
-}
-
-function getWeekSchedule() {
-  const out = [];
-  const now = new Date();
-  const dayOfWeek = now.getDay();
-  const mondayOffset = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
-  const monday = new Date(now);
-  monday.setDate(monday.getDate() + mondayOffset);
-
-  const dayLabels = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
-  for (let i = 0; i < 7; i++) {
-    const d = new Date(monday);
-    d.setDate(d.getDate() + i);
-    const ds = dateStr(d);
-    const sessionKey = sessionForDay(ds);
-    const w = DATA.workouts[ds];
-    let status = 'upcoming';
-    if (ds === today()) status = 'today';
-    else if (ds < today()) {
-      if (w && (w.exercises?.some(e => e.sets.some(s => s.done)) || w.session_note || w.finisher_note)) status = 'done';
-      else if (sessionKey !== 'rest') status = 'missed';
-      else status = 'rest';
-    }
-    const monthDay = String(d.getMonth()+1) + '/' + String(d.getDate());
-    out.push({date: ds, dayLabel: dayLabels[i] + ' · ' + monthDay, sessionKey, status});
-  }
-  return out;
-}
-
-function logSet(date, sessionKey, exName, setIdx, field, value) {
-  if (!DATA.workouts[date]) DATA.workouts[date] = {session: sessionKey, exercises: []};
-  const w = DATA.workouts[date];
-  if (!w.exercises) w.exercises = [];
-  let ex = w.exercises.find(e => e.name === exName);
-  if (!ex) { ex = {name: exName, sets: []}; w.exercises.push(ex); }
-  while (ex.sets.length <= setIdx) ex.sets.push({});
-  const val = field === 'weight' ? parseFloat(value) : parseInt(value);
-  ex.sets[setIdx][field] = isNaN(val) ? undefined : val;
-  if (field === 'reps' && val) ex.sets[setIdx].done = true;
-  saveData();
-  if (field === 'reps' && val) renderToday();
-}
-
-function toggleSetDone(date, sessionKey, exName, setIdx) {
-  if (!DATA.workouts[date]) DATA.workouts[date] = {session: sessionKey, exercises: []};
-  const w = DATA.workouts[date];
-  if (!w.exercises) w.exercises = [];
-  let ex = w.exercises.find(e => e.name === exName);
-  if (!ex) { ex = {name: exName, sets: []}; w.exercises.push(ex); }
-  while (ex.sets.length <= setIdx) ex.sets.push({});
-  ex.sets[setIdx].done = !ex.sets[setIdx].done;
-  saveData();
-  renderToday();
-}
-
-function logFinisher(date, val) {
-  if (!DATA.workouts[date]) DATA.workouts[date] = {session: sessionForDay(date), exercises: []};
-  DATA.workouts[date].finisher_note = val;
-  saveData();
-}
-
-function logSessionNote(date, sessionKey, val) {
-  if (!DATA.workouts[date]) DATA.workouts[date] = {session: sessionKey, exercises: []};
-  DATA.workouts[date].session_note = val;
-  saveData();
-}
-
-function logWeight() {
-  const val = parseFloat(document.getElementById('wt-input').value);
-  if (isNaN(val)) return toast('Enter a number');
-  DATA.weight[today()] = val;
-  saveData();
-  toast('Weight logged');
-  renderToday();
-}
-
-function renderLifts() {
-  const lifts = ['Bench press', 'Back squat', 'Weighted pull-up', 'Romanian deadlift', 'Overhead press (barbell)', 'Pendlay row'];
-  let html = `<div class="hdr"><h1>Lifts</h1><span class="pill">Progressive overload</span></div>`;
-
-  const targets = {
-    'Bench press': {p3: 125, p4: 135},
-    'Back squat': {p3: 155, p4: 165},
-    'Weighted pull-up': {p3: 25, p4: 35},
-    'Romanian deadlift': {p3: 155, p4: 165},
-    'Overhead press (barbell)': {p3: 75, p4: 80}
-  };
-
-  html += `<div class="card"><h2>Strength targets</h2><div class="subtitle">Your scoreboard through October</div>`;
-  lifts.forEach(name => {
-    if (!targets[name]) return;
-    const last = lastWeightForExercise(name);
-    const curr = last ? last.weight : 0;
-    const p3 = targets[name].p3, p4 = targets[name].p4;
-    const pct3 = Math.min(100, (curr / p3) * 100);
-    html += `
-      <div class="mt" style="padding:10px 0;border-bottom:0.5px solid var(--border)">
-        <div class="row space">
-          <div class="name" style="font-weight:500">${name}</div>
-          <div class="num" style="font-size:13px;color:var(--text-2)">${curr} → ${p3} lbs</div>
-        </div>
-        <div class="prog ${pct3>=100?'ok':''}"><div style="width:${pct3}%"></div></div>
-        <div class="muted mt" style="font-size:11px">Phase 3 target: ${p3} lbs · Phase 4: ${p4} lbs</div>
-      </div>
-    `;
-  });
-  html += `</div>`;
-
-  const ocTests = getOCTestHistory();
-  const oc150 = getOC150History();
-  const currentBest = ocTests.length ? Math.min(...ocTests.map(t => t.seconds)) : null;
-  const latest = ocTests.length ? ocTests[ocTests.length-1] : null;
-  const best150 = oc150.length ? Math.min(...oc150.map(t => t.seconds)) : null;
-  html += `
-    <div class="card">
-      <h2>OC 330m benchmark</h2>
-      <div class="subtitle">Selection test · realistic 1:53 · stretch 1:50</div>
-      <div class="grid2 mt">
-        <div class="stat">
-          <div class="label">PR</div>
-          <div class="value num">${currentBest !== null ? formatTime(currentBest) : '—'}</div>
-          <div class="trend">${latest ? 'Last: ' + latest.date : 'No test yet'}</div>
-        </div>
-        <div class="stat">
-          <div class="label">To 1:50</div>
-          <div class="value num">${currentBest ? (currentBest <= 110 ? '✓ PASS' : `-${Math.ceil(currentBest - 110)}s`) : '—'}</div>
-          <div class="trend">${currentBest && currentBest <= 113 ? '✓ at realistic target' : ''}</div>
-        </div>
-      </div>
-      <div class="mt2">
-        <label>Log 330m test (e.g. 1:54 or 114)</label>
-        <div class="row mt">
-          <input type="text" id="oc-time" placeholder="1:54">
-          <button class="primary" onclick="logOCTest()">Log test</button>
-        </div>
-      </div>
-      ${ocTests.length > 0 ? `
-        <h3>History</h3>
-        ${ocTests.slice().reverse().slice(0, 8).map(t => `
-          <div class="log-item">
-            <div class="nm">${t.date}</div>
-            <div class="rt"><div class="kcal num">${formatTime(t.seconds)}</div></div>
-          </div>
-        `).join('')}
-      ` : ''}
-    </div>
-
-    <div class="card">
-      <h2>OC 150m benchmark</h2>
-      <div class="subtitle">Sprint test · target sub-55s</div>
-      <div class="grid2 mt">
-        <div class="stat">
-          <div class="label">PR</div>
-          <div class="value num">${best150 !== null ? best150.toFixed(1) + 's' : '—'}</div>
-          <div class="trend">${best150 ? 'Baseline: 58s' : 'Baseline: 58s'}</div>
-        </div>
-        <div class="stat">
-          <div class="label">To sub-55</div>
-          <div class="value num">${best150 ? (best150 <= 55 ? '✓ PASS' : `-${(best150 - 55).toFixed(1)}s`) : '—'}</div>
-          <div class="trend"></div>
-        </div>
-      </div>
-      <div class="mt2">
-        <label>Log 150m test (seconds)</label>
-        <div class="row mt">
-          <input type="text" id="oc150-time" placeholder="56.5">
-          <button class="primary" onclick="logOC150Test()">Log test</button>
-        </div>
-      </div>
-      ${oc150.length > 0 ? `
-        <h3>History</h3>
-        ${oc150.slice().reverse().slice(0, 8).map(t => `
-          <div class="log-item">
-            <div class="nm">${t.date}</div>
-            <div class="rt"><div class="kcal num">${t.seconds.toFixed(1)}s</div></div>
-          </div>
-        `).join('')}
-      ` : ''}
-    </div>
-  `;
-
-  lifts.forEach(name => {
-    const history = getLiftHistory(name);
-    if (history.length === 0) return;
-    html += `
-      <div class="card">
-        <div class="row space">
-          <h2 style="font-size:15px">${name}</h2>
-          <span class="pill">${history.length} sessions</span>
-        </div>
-        ${renderLiftChart(history)}
-        <h3>Recent sessions</h3>
-        ${history.slice(-5).reverse().map(h => `
-          <div class="log-item">
-            <div>
-              <div class="nm">${h.date}</div>
-              <div class="mac">${h.sets.map(s => `${s.weight||'-'}×${s.reps||'-'}`).join(' · ')}</div>
-            </div>
-            <div class="rt">
-              <div class="kcal num">${h.topSet.weight} lbs</div>
-              <div class="mac">${h.topSet.reps} reps</div>
-            </div>
-          </div>
-        `).join('')}
-      </div>
-    `;
-  });
-
-  document.getElementById('view-lifts').innerHTML = html;
+  return { kg: last.weight_kg, reason: 'repeat — hit reps first' };
 }
 
 function getLiftHistory(name) {
@@ -1070,34 +640,327 @@ function getLiftHistory(name) {
     if (!w.exercises) continue;
     const ex = w.exercises.find(e => e.name === name);
     if (!ex || !ex.sets || ex.sets.length === 0) continue;
-    const valid = ex.sets.filter(s => s.weight && s.reps);
+    const valid = ex.sets.filter(s => s.weight_kg && s.reps);
     if (valid.length === 0) continue;
-    const topSet = valid.reduce((a,b) => (a.weight*a.reps > b.weight*b.reps ? a : b));
+    const topSet = valid.reduce((a,b) => (a.weight_kg*a.reps > b.weight_kg*b.reps ? a : b));
     out.push({date, sets: ex.sets, topSet});
   }
   return out;
 }
 
-function getOCTestHistory() {
-  if (!DATA.oc_tests) DATA.oc_tests = [];
-  return [...DATA.oc_tests].sort((a,b) => a.date.localeCompare(b.date));
+function getWeekSchedule(anchorDate) {
+  const out = [];
+  const now = anchorDate ? parseDate(anchorDate) : new Date();
+  const dayOfWeek = now.getDay();
+  const mondayOffset = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
+  const monday = new Date(now);
+  monday.setDate(monday.getDate() + mondayOffset);
+  const dayLabels = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(monday);
+    d.setDate(d.getDate() + i);
+    const ds = dateStr(d);
+    const sessionKey = sessionForDay(ds);
+    const w = DATA.workouts[ds];
+    let status = 'upcoming';
+    if (ds === today()) status = 'today';
+    else if (ds < today()) {
+      if (w && (w.exercises?.some(e => e.sets?.some(s => s.done)) || w.session_note)) status = 'done';
+      else if (sessionKey === 'rest' || sessionKey === 'rest_full') status = 'rest';
+      else status = 'missed';
+    }
+    out.push({date: ds, dayLabel: dayLabels[i] + ' · ' + formatDayMD(d), sessionKey, status});
+  }
+  return out;
 }
 
-function getOC150History() {
-  if (!DATA.oc150_tests) DATA.oc150_tests = [];
-  return [...DATA.oc150_tests].sort((a,b) => a.date.localeCompare(b.date));
+function renderToday() {
+  try {
+    const date = VIEWING_DATE;
+    const isViewingToday = date === today();
+    const phase = PHASES.find(p => date >= p.start && date <= p.end) || currentPhase();
+    const sessionKey = sessionForDay(date);
+    const session = SESSIONS[sessionKey] || SESSIONS.rest;
+    const dayName = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][parseDate(date).getDay()];
+    const q = quoteOfDay();
+    const foodToday = DATA.food[date] || [];
+    const kcals = foodToday.reduce((s,f) => s + (f.kcal||0), 0);
+    const prot = foodToday.reduce((s,f) => s + (f.p||0), 0);
+    const carbs = foodToday.reduce((s,f) => s + (f.c||0), 0);
+    const fat = foodToday.reduce((s,f) => s + (f.f||0), 0);
+    const tgt = DATA.settings;
+
+    let html = `<div class="hdr"><div><h1>${dayName}</h1><div class="sub">${date} · ${phase.name}</div></div><span class="pill accent">${phase.cal} kcal</span></div>`;
+    html += `<div class="quote-card">"${q[0]}"<div class="attr">— ${q[1]}</div></div>`;
+
+    // Date nav
+    html += `<div class="card" style="padding:12px;">
+      <div class="date-nav">
+        <button data-action="dayStep" data-step="-1">‹ prev</button>
+        <div class="date">${date}</div>
+        <button data-action="dayStep" data-step="1">next ›</button>
+      </div>
+      <div class="row mt2">
+        <input type="date" id="day-picker" value="${date}">
+        <button data-action="dayJump">Go</button>
+        ${!isViewingToday ? '<button class="primary" data-action="dayToday">Today</button>' : ''}
+      </div>
+    </div>`;
+
+    if (!isViewingToday) {
+      html += `<div class="info-box">Viewing <strong>${date}</strong> (${dayName}) — not today. Everything you log here will save to this date.</div>`;
+    }
+
+    if (phase.id === 'p1') html += `<div class="warn-box">Calibration week. Weigh food 5–7 days. Eat maintenance (${phase.cal} kcal). DO NOT cut this week.</div>`;
+    else if (phase.id === 'p2') html += `<div class="info-box">China mode — maintenance only. Protein every meal. Creatine: bring 5g/day or buy on Taobao/JD (肌酸, 一水).</div>`;
+    else if (phase.id === 'p5' || phase.id === 'p6') html += `<div class="warn-box">PEAK/RACE — fuel to perform. Not the time for a deficit. Sleep ≥8h.</div>`;
+
+    html += `<div class="card"><h2>${session.name}</h2>`;
+    if (session.duration) html += `<div class="subtitle">${session.duration} min${sessionKey === 'summer_tue' || sessionKey === 'peak_tue' ? ' · AM + PM' : ''}</div>`;
+    if (session.note) html += `<div class="muted mb">${session.note}</div>`;
+    if (session.warmup) html += `<details><summary>Warmup</summary><div>${session.warmup}</div></details>`;
+
+    if (session.exercises && session.exercises.length) {
+      html += `<h3>Exercises</h3>`;
+      const workout = DATA.workouts[date] || {session: sessionKey, exercises: []};
+      session.exercises.forEach((ex) => {
+        const logged = (workout.exercises || []).find(e => e.name === ex.name) || {sets: []};
+        const type = exerciseType(ex);
+        const hintShort = ex.hint || '';
+        const wUnit = unitLabel();
+        const exEnc = encodeURIComponent(ex.name);
+
+        // Header
+        html += `<div class="exercise"><div class="row space"><div><div class="name">${ex.name}</div>`;
+        if (type === 'strength' || type === 'bw') {
+          html += `<div class="target">${ex.sets} × ${ex.reps}${hintShort && hintShort.includes('Per') ? ' · ' + hintShort : ''}</div>`;
+        } else if (type === 'hold') {
+          html += `<div class="target">${ex.sets} × ${ex.reps}s${hintShort && hintShort.includes('Per') ? ' · ' + hintShort : ''}</div>`;
+        } else if (type === 'run') {
+          html += `<div class="target">Run · log total km + min</div>`;
+        } else if (type === 'time') {
+          html += `<div class="target">${ex.sets} interval${ex.sets>1?'s':''} · log time each</div>`;
+        } else if (type === 'check') {
+          html += `<div class="target">Mark done when complete</div>`;
+        }
+        html += `</div></div>`;
+
+        // Suggestion only for strength
+        if (type === 'strength') {
+          const suggest = suggestWeight(ex.name, ex.reps);
+          if (suggest) html += `<div class="suggest">Last: ${toLiftDisplay(suggest.kg)} ${wUnit} · ${suggest.reason}</div>`;
+        }
+        if (hintShort && !hintShort.includes('Per')) html += `<div class="muted mt">${hintShort}</div>`;
+
+        // Rows per type
+        html += `<div class="mt">`;
+
+        if (type === 'strength') {
+          for (let s = 0; s < ex.sets; s++) {
+            const sd = (logged.sets || [])[s] || {};
+            const wtDisp = sd.weight_kg ? toLiftDisplay(sd.weight_kg) : '';
+            html += `<div class="set-row"><div class="idx">${s+1}</div>
+              <input type="number" inputmode="decimal" step="0.5" placeholder="${wUnit}" value="${wtDisp}" data-action="logSet" data-date="${date}" data-session="${sessionKey}" data-ex="${exEnc}" data-set="${s}" data-field="weight">
+              <input type="number" inputmode="numeric" step="1" placeholder="reps" value="${sd.reps||''}" data-action="logSet" data-date="${date}" data-session="${sessionKey}" data-ex="${exEnc}" data-set="${s}" data-field="reps">
+              <input type="number" inputmode="numeric" step="1" min="1" max="10" placeholder="RPE" value="${sd.rpe||''}" data-action="logSet" data-date="${date}" data-session="${sessionKey}" data-ex="${exEnc}" data-set="${s}" data-field="rpe">
+              <div class="chk ${sd.done?'done':''}" data-action="toggleDone" data-date="${date}" data-session="${sessionKey}" data-ex="${exEnc}" data-set="${s}">${sd.done?'✓':''}</div>
+            </div>`;
+          }
+        } else if (type === 'bw') {
+          for (let s = 0; s < ex.sets; s++) {
+            const sd = (logged.sets || [])[s] || {};
+            html += `<div class="set-row" style="grid-template-columns:24px 1fr 34px;"><div class="idx">${s+1}</div>
+              <input type="number" inputmode="numeric" step="1" placeholder="reps (target ${ex.reps})" value="${sd.reps||''}" data-action="logSet" data-date="${date}" data-session="${sessionKey}" data-ex="${exEnc}" data-set="${s}" data-field="reps">
+              <div class="chk ${sd.done?'done':''}" data-action="toggleDone" data-date="${date}" data-session="${sessionKey}" data-ex="${exEnc}" data-set="${s}">${sd.done?'✓':''}</div>
+            </div>`;
+          }
+        } else if (type === 'hold') {
+          for (let s = 0; s < ex.sets; s++) {
+            const sd = (logged.sets || [])[s] || {};
+            html += `<div class="set-row" style="grid-template-columns:24px 1fr 34px;"><div class="idx">${s+1}</div>
+              <input type="number" inputmode="numeric" step="1" placeholder="seconds (target ${ex.reps})" value="${sd.seconds||''}" data-action="logSet" data-date="${date}" data-session="${sessionKey}" data-ex="${exEnc}" data-set="${s}" data-field="seconds">
+              <div class="chk ${sd.done?'done':''}" data-action="toggleDone" data-date="${date}" data-session="${sessionKey}" data-ex="${exEnc}" data-set="${s}">${sd.done?'✓':''}</div>
+            </div>`;
+          }
+        } else if (type === 'run') {
+          const sd = (logged.sets || [])[0] || {};
+          html += `<div class="set-row" style="grid-template-columns:1fr 1fr 34px;">
+            <input type="number" inputmode="decimal" step="0.1" placeholder="km" value="${sd.km||''}" data-action="logSet" data-date="${date}" data-session="${sessionKey}" data-ex="${exEnc}" data-set="0" data-field="km">
+            <input type="number" inputmode="numeric" step="1" placeholder="min" value="${sd.minutes||''}" data-action="logSet" data-date="${date}" data-session="${sessionKey}" data-ex="${exEnc}" data-set="0" data-field="minutes">
+            <div class="chk ${sd.done?'done':''}" data-action="toggleDone" data-date="${date}" data-session="${sessionKey}" data-ex="${exEnc}" data-set="0">${sd.done?'✓':''}</div>
+          </div>`;
+          if (sd.km && sd.minutes) {
+            const pace = sd.minutes / sd.km;
+            const pm = Math.floor(pace);
+            const ps = Math.round((pace - pm) * 60);
+            html += `<div class="muted mt" style="font-size:11px;">Pace: ${pm}:${String(ps).padStart(2,'0')}/km</div>`;
+          }
+        } else if (type === 'time') {
+          for (let s = 0; s < ex.sets; s++) {
+            const sd = (logged.sets || [])[s] || {};
+            const timeDisp = sd.seconds !== undefined ? formatTime(sd.seconds) : '';
+            html += `<div class="set-row" style="grid-template-columns:24px 1fr 34px;"><div class="idx">${s+1}</div>
+              <input type="text" inputmode="decimal" placeholder="time (e.g. 1:10)" value="${timeDisp}" data-action="logSet" data-date="${date}" data-session="${sessionKey}" data-ex="${exEnc}" data-set="${s}" data-field="time">
+              <div class="chk ${sd.done?'done':''}" data-action="toggleDone" data-date="${date}" data-session="${sessionKey}" data-ex="${exEnc}" data-set="${s}">${sd.done?'✓':''}</div>
+            </div>`;
+          }
+        } else if (type === 'check') {
+          const sd = (logged.sets || [])[0] || {};
+          html += `<div class="row mt"><button class="${sd.done?'':'primary'} full" data-action="toggleDone" data-date="${date}" data-session="${sessionKey}" data-ex="${exEnc}" data-set="0">${sd.done ? '✓ Done (tap to undo)' : 'Mark done'}</button></div>`;
+        }
+
+        html += `</div></div>`;
+      });
+    }
+
+    if (session.cooldown) {
+      html += `<h3>Cooldown · stretch (do not skip)</h3><details><summary>Cooldown routine (5–8 min)</summary><div>${COOLDOWN[session.cooldown]}</div></details>`;
+    }
+
+    if (session.exercises || session.note) {
+      const savedNote = DATA.workouts[date]?.session_note || '';
+      html += `<div class="mt"><label>Session notes (how you felt, paddle times, any pain)</label><textarea rows="2" placeholder="Notes..." data-action="logSessionNote" data-date="${date}" data-session="${sessionKey}">${savedNote}</textarea></div>`;
+    }
+    html += `</div>`;
+
+    html += `<div class="card"><h2>Today's food</h2>
+      <div class="grid2 mb">
+        <div class="stat"><div class="label">Calories</div><div class="value num">${Math.round(kcals)}<span style="font-size:14px;color:var(--text-3)"> / ${tgt.kcal_target}</span></div><div class="prog"><div style="width:${Math.min(100,kcals/tgt.kcal_target*100)}%"></div></div></div>
+        <div class="stat"><div class="label">Protein</div><div class="value num">${Math.round(prot)}<span style="font-size:14px;color:var(--text-3)"> / ${tgt.protein_target}g</span></div><div class="prog ${prot >= tgt.protein_target*0.9?'ok':''}"><div style="width:${Math.min(100,prot/tgt.protein_target*100)}%"></div></div></div>
+      </div>
+      <div class="grid2">
+        <div class="stat"><div class="label">Carbs</div><div class="value num">${Math.round(carbs)}<span style="font-size:14px;color:var(--text-3)"> / ${tgt.carbs_target}g</span></div></div>
+        <div class="stat"><div class="label">Fat</div><div class="value num">${Math.round(fat)}<span style="font-size:14px;color:var(--text-3)"> / ${tgt.fat_target}g</span></div></div>
+      </div>
+      <button class="full mt2 primary" data-action="goto" data-target="food">+ Log food</button>
+    </div>`;
+
+    const weightEntries = Object.entries(DATA.weight).sort((a,b) => a[0].localeCompare(b[0]));
+    const latest = weightEntries[weightEntries.length - 1];
+    const todayWt = DATA.weight[date];
+    html += `<div class="card">
+      <div class="row space mb"><h2>Morning weigh-in</h2>${latest ? `<span class="pill">${toDisplayWeight(latest[1])} ${unitLabel()} · ${latest[0]}</span>` : ''}</div>
+      <div class="row"><input type="number" step="0.1" inputmode="decimal" placeholder="${latest?toDisplayWeight(latest[1]):toDisplayWeight(DATA.settings.bodyweight_kg)}" id="wt-input" value="${todayWt?toDisplayWeight(todayWt):''}"><button class="primary" data-action="logWeight">Log ${todayWt?'update':''}</button></div>
+    </div>`;
+
+    const weekPreview = getWeekSchedule();
+    html += `<div class="card"><div class="row space mb"><h2>This week</h2><button class="small" data-action="goto" data-target="plan">Full plan →</button></div><div class="subtitle">${phase.name}</div>`;
+    weekPreview.forEach(d => {
+      const sess = SESSIONS[d.sessionKey] || SESSIONS.rest;
+      const isToday = d.date === today();
+      const isDone = d.status === 'done';
+      const isMissed = d.status === 'missed';
+      const isRest = d.sessionKey === 'rest' || d.sessionKey === 'rest_full';
+      const borderStyle = isToday ? 'border: 1px solid var(--accent);' : '';
+      const nameColor = isToday ? 'var(--accent)' : isDone ? 'var(--ok)' : isMissed ? 'var(--bad)' : isRest ? 'var(--text-3)' : 'var(--text)';
+      html += `<div style="padding:10px 12px;margin-top:8px;border-radius:8px;background:var(--surface-2);${borderStyle}"><div class="row space"><div style="flex:1;min-width:0;"><div style="font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:0.05em;">${d.dayLabel}</div><div style="font-weight:500;margin-top:2px;color:${nameColor};font-size:14px;">${sess.name}</div></div>${isDone?'<span class="pill ok">done</span>':isToday?'<span class="pill accent">today</span>':isMissed?'<span class="pill bad">miss</span>':''}</div></div>`;
+    });
+    html += `</div>`;
+
+    html += renderWeekRecap();
+    document.getElementById('view-today').innerHTML = html;
+  } catch(e) {
+    console.error('renderToday', e);
+    document.getElementById('view-today').innerHTML = `<div class="warn-box">Render error: ${e.message}. Try Body tab → Export JSON, then reload.</div>`;
+  }
+}
+
+function renderWeekRecap() {
+  const days = [];
+  for (let i = 6; i >= 0; i--) days.push(daysAgo(i));
+  let sessionsDone = 0, totalVolume = 0, kmRun = 0, avgKcal = 0, avgProt = 0, kcalDays = 0;
+  days.forEach(d => {
+    const w = DATA.workouts[d];
+    if (w?.exercises?.some(e => e.sets?.some(s => s.done))) sessionsDone++;
+    if (w?.exercises) w.exercises.forEach(e => (e.sets||[]).forEach(s => { if (s.done && s.weight_kg && s.reps) totalVolume += s.weight_kg * s.reps; }));
+    const food = DATA.food[d];
+    if (food && food.length) { avgKcal += food.reduce((s,f) => s + (f.kcal||0), 0); avgProt += food.reduce((s,f) => s + (f.p||0), 0); kcalDays++; }
+    const run = DATA.runs[d]; if (run?.km) kmRun += run.km;
+  });
+  const avgK = kcalDays ? Math.round(avgKcal / kcalDays) : 0;
+  const avgP = kcalDays ? Math.round(avgProt / kcalDays) : 0;
+  return `<div class="card"><h2>7-day recap</h2><div class="subtitle">Rolling look — progress is measured in weeks.</div>
+    <div class="grid2 mt">
+      <div class="stat"><div class="label">Sessions</div><div class="value num">${sessionsDone}<span style="font-size:14px;color:var(--text-3)"> done</span></div></div>
+      <div class="stat"><div class="label">Volume</div><div class="value num">${Math.round(totalVolume).toLocaleString()}<span style="font-size:14px;color:var(--text-3)"> kg·reps</span></div></div>
+      <div class="stat"><div class="label">Running</div><div class="value num">${kmRun.toFixed(1)}<span style="font-size:14px;color:var(--text-3)"> km</span></div></div>
+      <div class="stat"><div class="label">Avg kcal / prot</div><div class="value num" style="font-size:15px;">${avgK || '—'} / ${avgP || '—'}g</div><div class="trend">${kcalDays}/7 logged</div></div>
+    </div></div>`;
+}
+
+function renderLifts() {
+  try {
+    const targetsKg = {
+      'Bench press':        {p3: 55, p4: 57.5, p5: 60},
+      'Back squat':         {p3: 65, p4: 70, p5: 72.5},
+      'Weighted pull-up':   {p3: 11, p4: 13.5, p5: 15.5},
+      'Romanian deadlift':  {p3: 65, p4: 70, p5: 72.5},
+      'OHP (barbell or DB)':{p3: 30, p4: 32.5, p5: 35},
+    };
+    let html = `<div class="hdr"><h1>Lifts</h1><span class="pill">Stored in kg · display ${unitLabel()}</span></div>`;
+    html += `<div class="card"><h2>Strength targets</h2><div class="subtitle">Scoreboard through October — conservative, holdable during paddle season</div>`;
+    Object.keys(targetsKg).forEach(name => {
+      const last = lastWeightForExercise(name);
+      const curr = last ? last.weight_kg : 0;
+      const p5 = targetsKg[name].p5;
+      const pct = Math.min(100, (curr / p5) * 100);
+      html += `<div class="mt" style="padding:10px 0;border-bottom:0.5px solid var(--border)">
+        <div class="row space"><div class="name" style="font-weight:500">${name}</div><div class="num" style="font-size:13px;color:var(--text-2)">${toLiftDisplay(curr)} → ${toLiftDisplay(p5)} ${unitLabel()}</div></div>
+        <div class="prog ${pct>=100?'ok':''}"><div style="width:${pct}%"></div></div>
+        <div class="muted mt" style="font-size:11px">P3: ${toLiftDisplay(targetsKg[name].p3)} · P4: ${toLiftDisplay(targetsKg[name].p4)} · P5: ${toLiftDisplay(p5)} ${unitLabel()}</div>
+      </div>`;
+    });
+    html += `</div>`;
+
+    const ocTests = [...(DATA.oc_tests || [])].sort((a,b) => a.date.localeCompare(b.date));
+    const oc150 = [...(DATA.oc150_tests || [])].sort((a,b) => a.date.localeCompare(b.date));
+    const currentBest = ocTests.length ? Math.min(...ocTests.map(t => t.seconds)) : null;
+    const latestTest = ocTests.length ? ocTests[ocTests.length-1] : null;
+    const best150 = oc150.length ? Math.min(...oc150.map(t => t.seconds)) : null;
+
+    html += `<div class="card"><h2>OC 330m benchmark</h2><div class="subtitle">Selection test · realistic 1:53 · stretch 1:50</div>
+      <div class="grid2 mt">
+        <div class="stat"><div class="label">PR</div><div class="value num">${currentBest !== null ? formatTime(currentBest) : '—'}</div><div class="trend">${latestTest ? 'Last: ' + latestTest.date : 'No test yet'}</div></div>
+        <div class="stat"><div class="label">To 1:50</div><div class="value num">${currentBest !== null ? (currentBest <= 110 ? '✓' : `-${Math.ceil(currentBest - 110)}s`) : '—'}</div></div>
+      </div>
+      <div class="mt2"><label>Log 330m test (e.g. 1:54 or 114)</label><div class="row mt"><input type="text" id="oc-time" placeholder="1:54"><button class="primary" data-action="logOC330">Log</button></div></div>
+      ${ocTests.length > 0 ? `<h3>History</h3>${ocTests.slice().reverse().slice(0,8).map(t => `<div class="log-item"><div class="nm">${t.date}</div><div class="rt"><div class="kcal num">${formatTime(t.seconds)}</div></div></div>`).join('')}` : ''}
+    </div>`;
+
+    html += `<div class="card"><h2>OC 150m benchmark</h2><div class="subtitle">Sprint test · baseline 58s · target sub-55</div>
+      <div class="grid2 mt">
+        <div class="stat"><div class="label">PR</div><div class="value num">${best150 !== null ? best150.toFixed(1) + 's' : '—'}</div></div>
+        <div class="stat"><div class="label">To sub-55</div><div class="value num">${best150 !== null ? (best150 <= 55 ? '✓' : `-${(best150 - 55).toFixed(1)}s`) : '—'}</div></div>
+      </div>
+      <div class="mt2"><label>Log 150m test (seconds)</label><div class="row mt"><input type="text" id="oc150-time" placeholder="56.5"><button class="primary" data-action="logOC150">Log</button></div></div>
+      ${oc150.length > 0 ? `<h3>History</h3>${oc150.slice().reverse().slice(0,8).map(t => `<div class="log-item"><div class="nm">${t.date}</div><div class="rt"><div class="kcal num">${t.seconds.toFixed(1)}s</div></div></div>`).join('')}` : ''}
+    </div>`;
+
+    html += `<div class="card"><h2>Log a run</h2><div class="subtitle">For marathon build tracking</div>
+      <div class="grid2 mt"><input type="number" step="0.1" placeholder="km" id="run-km"><input type="number" step="1" placeholder="minutes" id="run-min"></div>
+      <div class="mt"><select id="run-type"><option value="easy">Easy / Z2</option><option value="tempo">Tempo</option><option value="interval">Intervals</option><option value="long">Long run</option><option value="race">Race</option></select></div>
+      <button class="primary full mt" data-action="logRun">Log today's run</button>
+    </div>`;
+
+    Object.keys(targetsKg).forEach(name => {
+      const history = getLiftHistory(name);
+      if (history.length === 0) return;
+      html += `<div class="card"><div class="row space"><h2 style="font-size:15px">${name}</h2><span class="pill">${history.length} sessions</span></div>${renderLiftChart(history)}<h3>Recent sessions</h3>${history.slice(-5).reverse().map(h => `<div class="log-item"><div><div class="nm">${h.date}</div><div class="mac">${h.sets.map(s => `${s.weight_kg?toLiftDisplay(s.weight_kg):'-'}×${s.reps||'-'}`).join(' · ')}</div></div><div class="rt"><div class="kcal num">${toLiftDisplay(h.topSet.weight_kg)} ${unitLabel()}</div><div class="mac">${h.topSet.reps} reps</div></div></div>`).join('')}</div>`;
+    });
+
+    document.getElementById('view-lifts').innerHTML = html;
+  } catch(e) {
+    console.error('renderLifts', e);
+    document.getElementById('view-lifts').innerHTML = `<div class="warn-box">Render error: ${e.message}</div>`;
+  }
 }
 
 function parseTimeString(s) {
-  s = s.trim();
-  if (s.includes(':')) {
-    const [m, sec] = s.split(':');
-    return parseInt(m) * 60 + parseFloat(sec);
-  }
+  s = String(s).trim();
+  if (s.includes(':')) { const [m, sec] = s.split(':'); return parseInt(m) * 60 + parseFloat(sec); }
   if (s.endsWith('s')) s = s.slice(0, -1);
   return parseFloat(s);
 }
-
 function formatTime(sec) {
   if (sec === null || isNaN(sec)) return '—';
   const m = Math.floor(sec / 60);
@@ -1105,288 +968,160 @@ function formatTime(sec) {
   return m + ':' + String(s).padStart(2, '0');
 }
 
-function logOCTest() {
-  const val = document.getElementById('oc-time').value;
-  const seconds = parseTimeString(val);
-  if (isNaN(seconds) || seconds < 60 || seconds > 300) return toast('Invalid time (e.g. 1:58 or 118)');
-  if (!DATA.oc_tests) DATA.oc_tests = [];
-  DATA.oc_tests.push({date: today(), seconds});
-  saveData();
-  toast('330m test logged');
-  renderLifts();
-}
-
-function logOC150Test() {
-  const val = document.getElementById('oc150-time').value;
-  const seconds = parseFloat(val);
-  if (isNaN(seconds) || seconds < 30 || seconds > 120) return toast('Invalid time (e.g. 56.5)');
-  if (!DATA.oc150_tests) DATA.oc150_tests = [];
-  DATA.oc150_tests.push({date: today(), seconds});
-  saveData();
-  toast('150m test logged');
-  renderLifts();
-}
-
 function renderLiftChart(history) {
   if (history.length < 2) return '<div class="muted">Need 2+ sessions for chart.</div>';
-  const maxWt = Math.max(...history.map(h => h.topSet.weight));
-  const minWt = Math.min(...history.map(h => h.topSet.weight));
+  const maxWt = Math.max(...history.map(h => h.topSet.weight_kg));
+  const minWt = Math.min(...history.map(h => h.topSet.weight_kg));
   const range = maxWt - minWt || 1;
-  const w = 320, h = 120, pad = 20;
+  const w = 320, h = 120, pad = 24;
   const points = history.map((pt, i) => {
     const x = pad + (i / (history.length - 1)) * (w - 2*pad);
-    const y = h - pad - ((pt.topSet.weight - minWt) / range) * (h - 2*pad);
+    const y = h - pad - ((pt.topSet.weight_kg - minWt) / range) * (h - 2*pad);
     return `${x},${y}`;
   });
-  return `
-    <div class="chart-wrap">
-      <svg class="chart" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
-        <line class="grid" x1="${pad}" y1="${h-pad}" x2="${w-pad}" y2="${h-pad}"/>
-        <line class="grid" x1="${pad}" y1="${pad}" x2="${pad}" y2="${h-pad}"/>
-        <polyline class="line" points="${points.join(' ')}"/>
-        ${points.map(p => { const [x,y] = p.split(','); return `<circle class="pt" cx="${x}" cy="${y}" r="3"/>`; }).join('')}
-        <text x="${pad}" y="${pad-4}">${maxWt} lbs</text>
-        <text x="${pad}" y="${h-pad+14}">${minWt} lbs</text>
-      </svg>
-    </div>
-  `;
+  return `<div class="chart-wrap"><svg class="chart" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
+    <line class="grid" x1="${pad}" y1="${h-pad}" x2="${w-pad}" y2="${h-pad}"/>
+    <line class="grid" x1="${pad}" y1="${pad}" x2="${pad}" y2="${h-pad}"/>
+    <polyline class="line" points="${points.join(' ')}"/>
+    ${points.map(p => { const [x,y] = p.split(','); return `<circle class="pt" cx="${x}" cy="${y}" r="3"/>`; }).join('')}
+    <text x="${pad}" y="${pad-4}">${toLiftDisplay(maxWt)} ${unitLabel()}</text>
+    <text x="${pad}" y="${h-pad+14}">${toLiftDisplay(minWt)} ${unitLabel()}</text>
+  </svg></div>`;
 }
 
 function renderFood() {
-  const date = today();
-  const foodToday = DATA.food[date] || [];
-  const tgt = DATA.settings;
-  const kcals = foodToday.reduce((s,f) => s + (f.kcal||0), 0);
-  const prot = foodToday.reduce((s,f) => s + (f.p||0), 0);
-  const carbs = foodToday.reduce((s,f) => s + (f.c||0), 0);
-  const fat = foodToday.reduce((s,f) => s + (f.f||0), 0);
-
-  let html = `
-    <div class="hdr">
-      <h1>Food</h1>
-      <span class="pill">${date}</span>
-    </div>
-    <div class="card">
-      <div class="grid2 mb">
-        <div class="stat">
-          <div class="label">Calories</div>
-          <div class="value num">${Math.round(kcals)} <span style="font-size:13px;color:var(--text-3)">/ ${tgt.kcal_target}</span></div>
-          <div class="prog"><div style="width:${Math.min(100,kcals/tgt.kcal_target*100)}%"></div></div>
+  try {
+    const date = VIEWING_DATE;
+    const isViewingToday = date === today();
+    const foodToday = DATA.food[date] || [];
+    const tgt = DATA.settings;
+    const kcals = foodToday.reduce((s,f) => s + (f.kcal||0), 0);
+    const prot = foodToday.reduce((s,f) => s + (f.p||0), 0);
+    const carbs = foodToday.reduce((s,f) => s + (f.c||0), 0);
+    const fat = foodToday.reduce((s,f) => s + (f.f||0), 0);
+    let html = `<div class="hdr"><h1>Food</h1><span class="pill ${isViewingToday?'':'accent'}">${date}</span></div>
+      <div class="card" style="padding:12px;">
+        <div class="date-nav">
+          <button data-action="dayStep" data-step="-1">‹ prev</button>
+          <div class="date">${date}</div>
+          <button data-action="dayStep" data-step="1">next ›</button>
         </div>
-        <div class="stat">
-          <div class="label">Protein</div>
-          <div class="value num">${Math.round(prot)}g <span style="font-size:13px;color:var(--text-3)">/ ${tgt.protein_target}</span></div>
-          <div class="prog ${prot >= tgt.protein_target*0.9?'ok':''}"><div style="width:${Math.min(100,prot/tgt.protein_target*100)}%"></div></div>
+        <div class="row mt2">
+          <input type="date" id="day-picker" value="${date}">
+          <button data-action="dayJump">Go</button>
+          ${!isViewingToday ? '<button class="primary" data-action="dayToday">Today</button>' : ''}
         </div>
+      </div>
+      <div class="card"><div class="grid2 mb">
+        <div class="stat"><div class="label">Calories</div><div class="value num">${Math.round(kcals)} <span style="font-size:13px;color:var(--text-3)">/ ${tgt.kcal_target}</span></div><div class="prog"><div style="width:${Math.min(100,kcals/tgt.kcal_target*100)}%"></div></div></div>
+        <div class="stat"><div class="label">Protein</div><div class="value num">${Math.round(prot)}g <span style="font-size:13px;color:var(--text-3)">/ ${tgt.protein_target}</span></div><div class="prog ${prot >= tgt.protein_target*0.9?'ok':''}"><div style="width:${Math.min(100,prot/tgt.protein_target*100)}%"></div></div></div>
       </div>
       <div class="grid2">
-        <div class="stat">
-          <div class="label">Carbs</div>
-          <div class="value num">${Math.round(carbs)}g <span style="font-size:13px;color:var(--text-3)">/ ${tgt.carbs_target}</span></div>
-        </div>
-        <div class="stat">
-          <div class="label">Fat</div>
-          <div class="value num">${Math.round(fat)}g <span style="font-size:13px;color:var(--text-3)">/ ${tgt.fat_target}</span></div>
+        <div class="stat"><div class="label">Carbs</div><div class="value num">${Math.round(carbs)}g <span style="font-size:13px;color:var(--text-3)">/ ${tgt.carbs_target}</span></div></div>
+        <div class="stat"><div class="label">Fat</div><div class="value num">${Math.round(fat)}g <span style="font-size:13px;color:var(--text-3)">/ ${tgt.fat_target}</span></div></div>
+      </div></div>
+      <div class="card"><h2>Quick add</h2><div class="subtitle">Tap to log a serving</div>
+        <div>${DATA.custom_foods.map((f,i) => `<span class="food-chip" data-action="addFood" data-idx="${i}">+ ${f.name}</span>`).join('')}</div>
+      </div>
+      <div class="card"><h2>Custom entry</h2>
+        <div class="col mt">
+          <input type="text" id="food-name" placeholder="Food name">
+          <div class="grid2"><input type="number" inputmode="decimal" id="food-kcal" placeholder="kcal"><input type="number" inputmode="decimal" id="food-p" placeholder="protein g"></div>
+          <div class="grid2"><input type="number" inputmode="decimal" id="food-c" placeholder="carbs g"><input type="number" inputmode="decimal" id="food-f" placeholder="fat g"></div>
+          <div class="grid2"><button data-action="addCustomFood" data-save="0">Log once</button><button class="primary" data-action="addCustomFood" data-save="1">Log + save</button></div>
         </div>
       </div>
-    </div>
-    <div class="card">
-      <h2>Quick add</h2>
-      <div class="subtitle">Tap to log a serving</div>
-      <div>
-        ${DATA.custom_foods.map((f,i) => `<span class="food-chip" onclick="addFood(${i})">+ ${f.name}</span>`).join('')}
-      </div>
-    </div>
-    <div class="card">
-      <h2>Custom entry</h2>
-      <div class="col mt">
-        <input type="text" id="food-name" placeholder="Food name">
-        <div class="grid2">
-          <input type="number" inputmode="decimal" id="food-kcal" placeholder="kcal">
-          <input type="number" inputmode="decimal" id="food-p" placeholder="protein g">
-        </div>
-        <div class="grid2">
-          <input type="number" inputmode="decimal" id="food-c" placeholder="carbs g">
-          <input type="number" inputmode="decimal" id="food-f" placeholder="fat g">
-        </div>
-        <div class="grid2">
-          <button onclick="addCustomFood(false)">Log once</button>
-          <button class="primary" onclick="addCustomFood(true)">Log + save preset</button>
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <h2>Today's entries</h2>
-      ${foodToday.length === 0 ? '<div class="muted">No food logged yet.</div>' :
-        foodToday.map((f, i) => `
-          <div class="log-item">
-            <div>
-              <div class="nm">${f.name}</div>
-              <div class="mac">${f.p||0}p · ${f.c||0}c · ${f.f||0}f</div>
-            </div>
-            <div class="rt">
-              <div class="kcal num">${f.kcal}</div>
-            </div>
-            <div class="del" onclick="deleteFood(${i})">×</div>
-          </div>
-        `).join('')}
-    </div>
-  `;
-  document.getElementById('view-food').innerHTML = html;
-}
-
-function addFood(idx) {
-  const f = DATA.custom_foods[idx];
-  const date = today();
-  if (!DATA.food[date]) DATA.food[date] = [];
-  DATA.food[date].push({...f});
-  saveData();
-  toast(`+ ${f.name}`);
-  renderFood();
-}
-
-function addCustomFood(savePreset) {
-  const name = document.getElementById('food-name').value.trim();
-  const kcal = parseFloat(document.getElementById('food-kcal').value) || 0;
-  const p = parseFloat(document.getElementById('food-p').value) || 0;
-  const c = parseFloat(document.getElementById('food-c').value) || 0;
-  const f = parseFloat(document.getElementById('food-f').value) || 0;
-  if (!name || kcal === 0) return toast('Name + kcal required');
-  const entry = {name, kcal, p, c, f};
-  const date = today();
-  if (!DATA.food[date]) DATA.food[date] = [];
-  DATA.food[date].push(entry);
-  if (savePreset) DATA.custom_foods.push(entry);
-  saveData();
-  ['food-name','food-kcal','food-p','food-c','food-f'].forEach(id => document.getElementById(id).value = '');
-  toast('Logged');
-  renderFood();
-}
-
-function deleteFood(idx) {
-  const date = today();
-  DATA.food[date].splice(idx, 1);
-  saveData();
-  renderFood();
+      <div class="card"><h2>Today's entries</h2>
+        ${foodToday.length === 0 ? '<div class="muted">No food logged yet.</div>' : foodToday.map((f, i) => `<div class="log-item"><div><div class="nm">${f.name}</div><div class="mac">${f.p||0}p · ${f.c||0}c · ${f.f||0}f</div></div><div class="rt"><div class="kcal num">${f.kcal}</div></div><div class="del" data-action="deleteFood" data-idx="${i}">×</div></div>`).join('')}
+      </div>`;
+    document.getElementById('view-food').innerHTML = html;
+  } catch(e) {
+    console.error('renderFood', e);
+    document.getElementById('view-food').innerHTML = `<div class="warn-box">Render error: ${e.message}</div>`;
+  }
 }
 
 function renderBody() {
-  const wts = Object.entries(DATA.weight).sort((a,b) => a[0].localeCompare(b[0]));
-  const latest = wts[wts.length - 1];
-  const week = wts.filter(([d]) => d >= daysAgo(7));
-  const avg7 = week.length ? (week.reduce((s,[_,v]) => s+v, 0) / week.length) : null;
-  const twoWeeksAgo = wts.filter(([d]) => d >= daysAgo(14) && d < daysAgo(7));
-  const avg14prev = twoWeeksAgo.length ? (twoWeeksAgo.reduce((s,[_,v]) => s+v, 0) / twoWeeksAgo.length) : null;
-  const trend = (avg7 && avg14prev) ? avg7 - avg14prev : null;
-
-  let html = `
-    <div class="hdr"><h1>Body</h1></div>
-    <div class="card">
-      <h2>Weight</h2>
-      <div class="grid2 mt">
-        <div class="stat">
-          <div class="label">Latest</div>
-          <div class="value num">${latest ? latest[1] + 'kg' : '—'}</div>
-          <div class="trend">${latest ? latest[0] : 'No data'}</div>
-        </div>
-        <div class="stat">
-          <div class="label">7-day avg</div>
-          <div class="value num">${avg7 ? avg7.toFixed(1) + 'kg' : '—'}</div>
-          <div class="trend ${trend > 0 ? 'up' : trend < 0 ? 'down' : ''}">${trend !== null ? (trend > 0 ? '+' : '') + trend.toFixed(1) + 'kg vs prev week' : ''}</div>
-        </div>
+  try {
+    const wts = Object.entries(DATA.weight).sort((a,b) => a[0].localeCompare(b[0]));
+    const latest = wts[wts.length - 1];
+    const week = wts.filter(([d]) => d >= daysAgo(7));
+    const avg7 = week.length ? (week.reduce((s,[_,v]) => s+v, 0) / week.length) : null;
+    const twoWeeksAgo = wts.filter(([d]) => d >= daysAgo(14) && d < daysAgo(7));
+    const avg14prev = twoWeeksAgo.length ? (twoWeeksAgo.reduce((s,[_,v]) => s+v, 0) / twoWeeksAgo.length) : null;
+    const trend = (avg7 !== null && avg14prev !== null) ? avg7 - avg14prev : null;
+    const u = unitLabel();
+    let html = `<div class="hdr"><h1>Body</h1></div>
+      <div class="card"><h2>Units</h2><div class="subtitle">All weights display in this unit. Internal storage always kg.</div>
+        <div class="seg mt"><div class="${DATA.settings.unit==='kg'?'on':''}" data-action="setUnit" data-val="kg">kg</div><div class="${DATA.settings.unit==='lb'?'on':''}" data-action="setUnit" data-val="lb">lb</div></div>
       </div>
-      <div class="row mt2">
-        <input type="number" step="0.1" inputmode="decimal" placeholder="57.5" id="wt-body-input" value="${DATA.weight[today()]||''}">
-        <button class="primary" onclick="logWeightFromBody()">Log today</button>
-      </div>
-    </div>
-  `;
+      <div class="card"><h2>Weight</h2>
+        <div class="grid2 mt">
+          <div class="stat"><div class="label">Latest</div><div class="value num">${latest ? toDisplayWeight(latest[1]) + u : '—'}</div><div class="trend">${latest ? latest[0] : 'No data'}</div></div>
+          <div class="stat"><div class="label">7-day avg</div><div class="value num">${avg7 !== null ? toDisplayWeight(avg7) + u : '—'}</div><div class="trend ${trend > 0 ? 'up' : trend < 0 ? 'down' : ''}">${trend !== null ? (trend > 0 ? '+' : '') + toDisplayWeight(trend) + ' vs prev wk' : ''}</div></div>
+        </div>
+        <div class="row mt2"><input type="number" step="0.1" inputmode="decimal" placeholder="${toDisplayWeight(DATA.settings.bodyweight_kg)}" id="wt-body-input" value="${DATA.weight[today()]?toDisplayWeight(DATA.weight[today()]):''}"><button class="primary" data-action="logWeightBody">Log today</button></div>
+      </div>`;
+    if (wts.length >= 2) html += `<div class="card"><h2>Weight trend (30d)</h2>${renderWeightChart(wts.slice(-30))}</div>`;
 
-  if (wts.length >= 2) {
-    html += `<div class="card"><h2>Weight trend</h2>${renderWeightChart(wts.slice(-30))}</div>`;
-  }
-
-  const cycleEntries = Object.entries(DATA.cycle).sort((a,b) => a[0].localeCompare(b[0]));
-  const periodStarts = cycleEntries.filter(([_,v]) => v.flow && v.flow !== 'none');
-  let daysSincePeriod = null, avgCycle = null;
-  if (periodStarts.length > 0) {
-    const latest = periodStarts[periodStarts.length - 1][0];
-    const diff = (parseDate(today()) - parseDate(latest)) / (1000*60*60*24);
-    daysSincePeriod = Math.round(diff);
-    if (periodStarts.length >= 2) {
-      const gaps = [];
-      for (let i = 1; i < periodStarts.length; i++) {
-        const g = (parseDate(periodStarts[i][0]) - parseDate(periodStarts[i-1][0])) / (1000*60*60*24);
-        if (g > 14 && g < 60) gaps.push(g);
+    const cycleEntries = Object.entries(DATA.cycle).sort((a,b) => a[0].localeCompare(b[0]));
+    const periodStarts = cycleEntries.filter(([_,v]) => v.period_start === true);
+    let daysSincePeriod = null, avgCycle = DATA.settings.avg_cycle_days || 28, predictedNext = null;
+    if (periodStarts.length > 0) {
+      const latestStart = periodStarts[periodStarts.length - 1][0];
+      daysSincePeriod = daysBetween(latestStart, today());
+      if (periodStarts.length >= 2) {
+        const gaps = [];
+        for (let i = 1; i < periodStarts.length; i++) { const g = daysBetween(periodStarts[i-1][0], periodStarts[i][0]); if (g > 14 && g < 60) gaps.push(g); }
+        if (gaps.length) avgCycle = Math.round(gaps.reduce((s,g) => s+g, 0) / gaps.length);
       }
-      if (gaps.length) avgCycle = Math.round(gaps.reduce((s,g) => s+g, 0) / gaps.length);
+      const d = parseDate(latestStart);
+      d.setDate(d.getDate() + avgCycle);
+      predictedNext = dateStr(d);
     }
-  }
+    const todayCycle = DATA.cycle[today()] || {};
 
-  const todayCycle = DATA.cycle[today()] || {};
-
-  html += `
-    <div class="card">
-      <h2>Cycle</h2>
+    html += `<div class="card"><h2>Cycle</h2>
+      <div class="info-box" style="margin-bottom:10px;">Manual tracking only — no static web page can sync cycle data from Apple Health or Huawei. Tap "Period started today" on day 1; the app predicts the next cycle from your history.</div>
       <div class="grid2 mt">
-        <div class="stat">
-          <div class="label">Days since period</div>
-          <div class="value num">${daysSincePeriod !== null ? daysSincePeriod : '—'}</div>
-        </div>
-        <div class="stat">
-          <div class="label">Avg cycle</div>
-          <div class="value num">${avgCycle ? avgCycle + ' days' : '—'}</div>
-        </div>
+        <div class="stat"><div class="label">Days since period</div><div class="value num">${daysSincePeriod !== null ? daysSincePeriod : '—'}</div></div>
+        <div class="stat"><div class="label">Avg cycle</div><div class="value num">${avgCycle}<span style="font-size:13px;color:var(--text-3)"> days</span></div><div class="trend">${predictedNext ? 'Next ~' + predictedNext : 'Need 2+ periods'}</div></div>
       </div>
-      ${daysSincePeriod !== null && daysSincePeriod > 35 ? `<div class="warn-box mt2">Cycle &gt; 35 days. If not pregnant: RED FLAG. Add 300 kcal/day, reduce training 20%. Review Plan → Red flags.</div>` : ''}
+      ${daysSincePeriod !== null && daysSincePeriod > 40 ? `<div class="warn-box mt2">Cycle &gt; 40 days. RED FLAG. If not pregnant: add 300 kcal/day, reduce training 25%, see a doctor if it repeats. Missing period on a deficit = body saying "too much."</div>` : ''}
+      <button class="${todayCycle.period_start?'':'primary'} full mt2" data-action="togglePeriodStart">${todayCycle.period_start ? '✓ Period started today (tap to undo)' : 'Period started today'}</button>
       <h3>Today</h3>
       <label>Flow</label>
-      <select onchange="logCycle('flow', this.value)">
-        <option value="none" ${todayCycle.flow==='none'||!todayCycle.flow?'selected':''}>— None —</option>
+      <select data-action="logCycle" data-field="flow">
+        <option value="" ${!todayCycle.flow?'selected':''}>— None —</option>
         <option value="light" ${todayCycle.flow==='light'?'selected':''}>Light</option>
         <option value="medium" ${todayCycle.flow==='medium'?'selected':''}>Medium</option>
         <option value="heavy" ${todayCycle.flow==='heavy'?'selected':''}>Heavy</option>
       </select>
       <label class="mt">Energy (1-10)</label>
-      <input type="number" min="1" max="10" placeholder="1-10" value="${todayCycle.energy||''}"
-        onchange="logCycle('energy', this.value)">
-      <label class="mt">Symptoms (comma-separated)</label>
-      <input type="text" placeholder="cramps, bloat, low energy..." value="${todayCycle.symptoms||''}"
-        onchange="logCycle('symptoms', this.value)">
-    </div>
-  `;
+      <input type="number" min="1" max="10" placeholder="1-10" value="${todayCycle.energy||''}" data-action="logCycle" data-field="energy">
+      <label class="mt">Symptoms</label>
+      <input type="text" placeholder="cramps, bloat, low energy..." value="${todayCycle.symptoms||''}" data-action="logCycle" data-field="symptoms">
+    </div>`;
 
-  const todayNote = DATA.notes[today()] || '';
-  html += `
-    <div class="card">
-      <h2>Sunday review</h2>
-      <div class="subtitle">Every Sunday, answer these 4 questions.</div>
-      <label class="mt">1. Sleep avg this week (hours)</label>
-      <input type="number" step="0.1" id="note-sleep" placeholder="e.g. 7.5">
-      <label class="mt">2. Any session feel unexplainably bad?</label>
-      <textarea rows="2" id="note-bad" placeholder="..."></textarea>
-      <label class="mt">3. Any actual pain (not soreness)?</label>
-      <textarea rows="2" id="note-pain" placeholder="..."></textarea>
-      <label class="mt">4. Weight trending as expected?</label>
-      <textarea rows="2" id="note-weight" placeholder="..."></textarea>
-      <button class="primary full mt2" onclick="saveReview()">Save week review</button>
-    </div>
+    html += `<div class="card"><h2>Sunday review</h2><div class="subtitle">Every Sunday, answer these 4 questions. 2 minutes. Mindset lives here.</div>
+      <label class="mt">1. Sleep avg this week (hours)</label><input type="number" step="0.1" id="note-sleep" placeholder="e.g. 7.5">
+      <label class="mt">2. Any session feel unexplainably bad?</label><textarea rows="2" id="note-bad" placeholder="..."></textarea>
+      <label class="mt">3. Any actual pain (not soreness)?</label><textarea rows="2" id="note-pain" placeholder="..."></textarea>
+      <label class="mt">4. What did I do well this week?</label><textarea rows="2" id="note-wins" placeholder="..."></textarea>
+      <button class="primary full mt2" data-action="saveReview">Save week review</button>
+    </div>`;
 
-    <div class="card">
-      <h2>Data</h2>
-      <div class="subtitle">Your data lives in this browser. Export for backup.</div>
-      <div class="grid2 mt">
-        <button onclick="exportData()">Export JSON</button>
-        <button onclick="document.getElementById('import-file').click()">Import JSON</button>
-      </div>
-      <input type="file" id="import-file" class="hide" accept="application/json" onchange="importData(event)">
-      <div class="mt">
-        <button class="ghost full" onclick="editSettings()">Edit targets & body metrics</button>
-      </div>
-    </div>
-  `;
+    html += `<div class="card"><h2>Data</h2><div class="subtitle">Data lives in this browser. Export weekly.</div>
+      <div class="grid2 mt"><button data-action="exportData">Export JSON</button><button data-action="importData">Import JSON</button></div>
+      <div class="mt"><button class="ghost full" data-action="editSettings">Edit nutrition targets</button></div>
+      <div class="mt"><button class="danger full" data-action="resetData">Reset all data</button></div>
+    </div>`;
 
-  document.getElementById('view-body').innerHTML = html;
+    document.getElementById('view-body').innerHTML = html;
+  } catch(e) {
+    console.error('renderBody', e);
+    document.getElementById('view-body').innerHTML = `<div class="warn-box">Render error: ${e.message}</div>`;
+  }
 }
 
 function renderWeightChart(wts) {
@@ -1394,340 +1129,606 @@ function renderWeightChart(wts) {
   const vals = wts.map(([_,v]) => v);
   const maxV = Math.max(...vals), minV = Math.min(...vals);
   const range = maxV - minV || 1;
-  const w = 320, h = 140, pad = 24;
+  const w = 320, h = 140, pad = 28;
   const pts = wts.map(([_,v], i) => {
     const x = pad + (i / (wts.length - 1)) * (w - 2*pad);
     const y = h - pad - ((v - minV) / range) * (h - 2*pad);
     return `${x},${y}`;
   });
-  return `
-    <div class="chart-wrap">
-      <svg class="chart" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
-        <line class="grid" x1="${pad}" y1="${h-pad}" x2="${w-pad}" y2="${h-pad}"/>
-        <line class="grid" x1="${pad}" y1="${pad}" x2="${pad}" y2="${h-pad}"/>
-        <polyline class="line" points="${pts.join(' ')}"/>
-        ${pts.map(p => { const [x,y] = p.split(','); return `<circle class="pt" cx="${x}" cy="${y}" r="2.5"/>`; }).join('')}
-        <text x="${pad}" y="${pad-4}">${maxV.toFixed(1)}kg</text>
-        <text x="${pad}" y="${h-pad+14}">${minV.toFixed(1)}kg</text>
-      </svg>
-    </div>
-  `;
+  return `<div class="chart-wrap"><svg class="chart" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
+    <line class="grid" x1="${pad}" y1="${h-pad}" x2="${w-pad}" y2="${h-pad}"/>
+    <line class="grid" x1="${pad}" y1="${pad}" x2="${pad}" y2="${h-pad}"/>
+    <polyline class="line" points="${pts.join(' ')}"/>
+    ${pts.map(p => { const [x,y] = p.split(','); return `<circle class="pt" cx="${x}" cy="${y}" r="2.5"/>`; }).join('')}
+    <text x="${pad}" y="${pad-4}">${toDisplayWeight(maxV)}${unitLabel()}</text>
+    <text x="${pad}" y="${h-pad+14}">${toDisplayWeight(minV)}${unitLabel()}</text>
+  </svg></div>`;
 }
 
-function logWeightFromBody() {
-  const val = parseFloat(document.getElementById('wt-body-input').value);
-  if (isNaN(val)) return toast('Enter a number');
-  DATA.weight[today()] = val;
-  saveData();
-  toast('Logged');
-  renderBody();
-}
+let HISTORY_ANCHOR = today();
 
-function logCycle(field, val) {
-  if (!DATA.cycle[today()]) DATA.cycle[today()] = {};
-  DATA.cycle[today()][field] = val;
-  saveData();
-}
+function renderHistory() {
+  try {
+    const anchor = HISTORY_ANCHOR;
+    const d = parseDate(anchor);
+    const dayName = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][d.getDay()];
+    const phase = PHASES.find(p => anchor >= p.start && anchor <= p.end);
+    const sessionKey = sessionForDay(anchor);
+    const session = SESSIONS[sessionKey] || SESSIONS.rest;
+    const workout = DATA.workouts[anchor];
+    const foodDay = DATA.food[anchor] || [];
+    const weight = DATA.weight[anchor];
+    const cycle = DATA.cycle[anchor];
+    const run = DATA.runs[anchor];
 
-function saveReview() {
-  const review = {
-    sleep: document.getElementById('note-sleep').value,
-    bad_session: document.getElementById('note-bad').value,
-    pain: document.getElementById('note-pain').value,
-    weight_trend: document.getElementById('note-weight').value,
-    date: today()
-  };
-  DATA.notes[today()] = JSON.stringify(review);
-  saveData();
-  toast('Review saved');
-}
+    let html = `<div class="hdr"><h1>History</h1><span class="pill">Scroll any day</span></div>
+      <div class="card">
+        <div class="date-nav">
+          <button data-action="historyStep" data-step="-7">«-7</button>
+          <button data-action="historyStep" data-step="-1">‹-1</button>
+          <div class="date">${dayName} · ${anchor}</div>
+          <button data-action="historyStep" data-step="1">+1›</button>
+          <button data-action="historyStep" data-step="7">+7»</button>
+        </div>
+        <div class="row mt2"><input type="date" id="history-date-input" value="${anchor}"><button data-action="historyJump">Jump</button><button class="ghost" data-action="historyToday">Today</button></div>
+        ${phase ? `<div class="muted mt">Phase that day: ${phase.name}</div>` : ''}
+      </div>
+      <div class="card"><h2>${session.name}</h2>${session.duration ? `<div class="subtitle">${session.duration} min · planned</div>` : ''}`;
 
-function exportData() {
-  const blob = new Blob([JSON.stringify(DATA, null, 2)], {type: 'application/json'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'hybrid-athlete-tracker-' + today() + '.json';
-  a.click();
-  URL.revokeObjectURL(url);
-}
-
-function importData(e) {
-  const file = e.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = (ev) => {
-    try {
-      const imported = JSON.parse(ev.target.result);
-      if (!confirm('Replace all current data with imported file?')) return;
-      DATA = imported;
-      saveData();
-      toast('Imported');
-      renderView(document.querySelector('.tab.active').dataset.tab);
-    } catch(err) {
-      toast('Invalid file');
+    if (workout && workout.exercises && workout.exercises.length) {
+      html += `<h3>Logged</h3>`;
+      workout.exercises.forEach(ex => {
+        const sets = (ex.sets || []).filter(s => s.reps || s.weight_kg);
+        if (sets.length === 0) return;
+        html += `<div class="log-item"><div><div class="nm">${ex.name}</div><div class="mac">${sets.map(s => `${s.weight_kg?toLiftDisplay(s.weight_kg)+unitLabel():''}×${s.reps||'-'}${s.rpe?' @'+s.rpe:''}${s.done?' ✓':''}`).join(' · ')}</div></div></div>`;
+      });
+      if (workout.session_note) html += `<div class="muted mt"><em>Notes:</em> ${workout.session_note}</div>`;
+    } else {
+      html += `<div class="muted">No workout logged this day.</div>`;
     }
-  };
-  reader.readAsText(file);
-}
+    if (run) html += `<div class="mt"><div class="log-item"><div><div class="nm">Run</div><div class="mac">${run.type}</div></div><div class="rt"><div class="kcal num">${run.km} km</div><div class="mac">${run.minutes} min</div></div></div></div>`;
+    html += `</div>`;
 
-function editSettings() {
-  const s = DATA.settings;
-  const bw = prompt('Bodyweight (kg)', s.bodyweight_kg);
-  if (bw === null) return;
-  const kcal = prompt('Daily kcal target', s.kcal_target);
-  if (kcal === null) return;
-  const prot = prompt('Daily protein target (g)', s.protein_target);
-  if (prot === null) return;
-  const c = prompt('Daily carbs target (g)', s.carbs_target);
-  if (c === null) return;
-  const f = prompt('Daily fat target (g)', s.fat_target);
-  if (f === null) return;
-  s.bodyweight_kg = parseFloat(bw) || s.bodyweight_kg;
-  s.kcal_target = parseInt(kcal) || s.kcal_target;
-  s.protein_target = parseInt(prot) || s.protein_target;
-  s.carbs_target = parseInt(c) || s.carbs_target;
-  s.fat_target = parseInt(f) || s.fat_target;
-  saveData();
-  toast('Settings updated');
-  renderBody();
+    const kcals = foodDay.reduce((s,f) => s + (f.kcal||0), 0);
+    const prot = foodDay.reduce((s,f) => s + (f.p||0), 0);
+    html += `<div class="card"><h2>Food (${kcals} kcal · ${prot}g protein)</h2>
+      ${foodDay.length === 0 ? '<div class="muted">No food logged this day.</div>' : foodDay.map(f => `<div class="log-item"><div><div class="nm">${f.name}</div><div class="mac">${f.p||0}p · ${f.c||0}c · ${f.f||0}f</div></div><div class="rt"><div class="kcal num">${f.kcal}</div></div></div>`).join('')}
+    </div>`;
+
+    html += `<div class="card"><h2>Body</h2>
+      <div class="log-item"><div class="nm">Weight</div><div class="rt"><div class="kcal num">${weight ? toDisplayWeight(weight) + unitLabel() : '—'}</div></div></div>
+      ${cycle ? `<div class="log-item"><div class="nm">Cycle</div><div class="mac">${cycle.period_start ? 'PERIOD START · ' : ''}${cycle.flow||''} ${cycle.energy ? '· energy '+cycle.energy+'/10':''}${cycle.symptoms?' · '+cycle.symptoms:''}</div></div>` : ''}
+    </div>`;
+
+    html += `<div class="card"><h2>Last 4 weeks</h2><div class="subtitle">Tap any cell to jump</div>
+      <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-top:8px;">`;
+    const today_d = today();
+    for (let i = 27; i >= 0; i--) {
+      const ds = daysAgo(i);
+      const dd = parseDate(ds);
+      const wk = DATA.workouts[ds];
+      const didSession = wk?.exercises?.some(e => e.sets?.some(s => s.done));
+      const didRun = !!DATA.runs[ds];
+      const isCurrent = ds === anchor;
+      const isToday = ds === today_d;
+      const periodDay = DATA.cycle[ds]?.flow;
+      let bg = 'var(--surface-2)', color = 'var(--text-3)', border = '';
+      if (periodDay) { bg = '#2a0f1a'; color = '#e66'; }
+      if (didSession || didRun) { bg = 'var(--accent-dim)'; color = '#F5C4B3'; }
+      if (isToday) border = 'border:1px solid var(--accent);';
+      if (isCurrent) border = 'border:1.5px solid var(--ok);';
+      html += `<div style="aspect-ratio:1;background:${bg};color:${color};${border}border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:10px;cursor:pointer;" data-action="historyGoto" data-date="${ds}">${dd.getDate()}</div>`;
+    }
+    html += `</div><div class="muted mt" style="font-size:11px;">Orange = trained · Red = period · Green border = selected</div></div>`;
+
+    const last30 = [];
+    for (let i = 0; i < 30; i++) last30.push(daysAgo(i));
+    const sessions30 = last30.filter(d => DATA.workouts[d]?.exercises?.some(e => e.sets?.some(s => s.done))).length;
+    const runs30 = last30.filter(d => DATA.runs[d]?.km).length;
+    const kcalDays30 = last30.filter(d => (DATA.food[d]||[]).length > 0).length;
+    html += `<div class="card"><h2>30-day consistency</h2>
+      <div class="grid3 mt">
+        <div class="stat"><div class="label">Sessions</div><div class="value num">${sessions30}</div></div>
+        <div class="stat"><div class="label">Runs</div><div class="value num">${runs30}</div></div>
+        <div class="stat"><div class="label">Food logs</div><div class="value num">${kcalDays30}</div></div>
+      </div>
+    </div>`;
+
+    document.getElementById('view-history').innerHTML = html;
+  } catch(e) {
+    console.error('renderHistory', e);
+    document.getElementById('view-history').innerHTML = `<div class="warn-box">Render error: ${e.message}</div>`;
+  }
 }
 
 function renderPlan() {
-  const phase = currentPhase();
-  const pi = phaseInfo(phase);
+  try {
+    const phase = currentPhase();
+    const weekSessions = getWeekSchedule();
+    let html = `<div class="hdr"><h1>Plan</h1><span class="pill accent">${phase.id.toUpperCase()}</span></div>
+      <div class="card"><h2>This week</h2><div class="subtitle">${phase.name}</div>`;
+    weekSessions.forEach(d => {
+      const sessionData = SESSIONS[d.sessionKey] || SESSIONS.rest;
+      const isToday = d.date === today();
+      const isDone = d.status === 'done';
+      const statusColor = isToday ? 'var(--accent)' : isDone ? 'var(--ok)' : 'var(--text-2)';
+      const borderStyle = isToday ? 'border: 1px solid var(--accent);' : '';
+      html += `<div style="padding:12px;margin:8px 0;border-radius:8px;background:var(--surface-2);${borderStyle}"><div class="row space"><div><div style="font-size:12px;color:var(--text-3);text-transform:uppercase;letter-spacing:0.05em;">${d.dayLabel}${isToday?' · today':''}</div><div style="font-weight:500;margin-top:2px;color:${statusColor}">${sessionData.name}</div>${sessionData.duration?`<div class="muted" style="font-size:12px;">${sessionData.duration} min</div>`:''}</div>${isDone?'<span class="pill ok">done</span>':isToday?'<span class="pill accent">today</span>':''}</div></div>`;
+    });
+    html += `</div>`;
 
-  const weekSessions = getWeekSchedule();
+    html += `<div class="card"><h2>Summer weekly pattern</h2><div class="subtitle">P3–P5 · 5 DB + external OC (2×) + 2 gym + 1 long run + 1 full rest</div>
+      <div class="plan-sect">
+        <h4>Key rule</h4>
+        <p>DB practice is 5×/week — that's the team commitment. OC training is EXTERNAL to DB, 2× per week. Everything else is built around those two non-negotiables. Friday is FULL REST (non-negotiable).</p>
+      </div>
+      <div class="plan-sect">
+        <h4>Default pattern (adjust to your DB club schedule)</h4>
+        <ul>
+          <li><strong>Mon:</strong> Gym Upper AM + DB practice PM</li>
+          <li><strong>Tue:</strong> OC intervals AM (6×200m) + DB practice PM — hardest day</li>
+          <li><strong>Wed:</strong> DB only (recovery from Tue)</li>
+          <li><strong>Thu:</strong> Gym Lower AM + DB practice PM</li>
+          <li><strong>Fri:</strong> FULL REST</li>
+          <li><strong>Sat:</strong> DB practice + OC 150m sprints (after DB)</li>
+          <li><strong>Sun:</strong> Long run (marathon build)</li>
+        </ul>
+      </div>
+      <div class="plan-sect">
+        <h4>If DB schedule differs</h4>
+        <p>If your club doesn't run 5 days M-Thu+Sat, shift. Rules: (1) NEVER OC sprint the day before DB (fresh arms); (2) Gym lower never the day before long run; (3) Friday rest always; (4) At most 1 double-session day besides Tuesday.</p>
+      </div>
+    </div>`;
 
-  let html = `
-    <div class="hdr"><h1>This week</h1><span class="pill accent">${pi.name.split('—')[0]}</span></div>
-    <div class="card">
-      <h2>7-day view</h2>
-      <div class="subtitle">${pi.name}</div>`;
+    html += `<div class="card"><h2>All phases · your roadmap</h2><div class="subtitle">Performance first through October. Aesthetic cut starts Nov.</div>`;
+    PHASES.forEach(p => {
+      const isCurrent = p.id === phase.id;
+      html += `<details ${isCurrent?'open':''}><summary>${p.name} · ${p.start.slice(5)} → ${p.end.slice(5)}${isCurrent?' · NOW':''}</summary><div><strong>Calories:</strong> ${p.cal} kcal · ${p.protein}g protein
 
-  weekSessions.forEach(d => {
-    const sessionData = SESSIONS[d.sessionKey] || SESSIONS.rest;
-    const isToday = d.date === today();
-    const isPast = d.date < today();
-    const isDone = d.status === 'done';
-    const statusColor = isToday ? 'var(--accent)' : isDone ? 'var(--ok)' : isPast ? 'var(--text-3)' : 'var(--text-2)';
-    const borderStyle = isToday ? 'border: 1px solid var(--accent);' : '';
-    html += `
-      <div style="padding: 12px; margin: 8px 0; border-radius: 8px; background: var(--surface-2); ${borderStyle}">
-        <div class="row space">
-          <div>
-            <div style="font-size: 12px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.05em;">${d.dayLabel}${isToday ? ' · today' : ''}</div>
-            <div style="font-weight: 500; margin-top: 2px; color: ${statusColor}">${sessionData.name}</div>
-            ${sessionData.duration ? `<div class="muted" style="font-size: 12px;">${sessionData.duration} min${d.sessionKey === 'oc_intervals_am_upper_pm' || d.sessionKey === 'oc_race_pace_am_upper_pm' ? ' · AM water + PM gym' : ''}</div>` : ''}
-          </div>
-          ${isDone ? '<span class="pill ok">done</span>' : isToday ? '<span class="pill accent">today</span>' : ''}
-        </div>
-      </div>`;
-  });
+${p.desc}</div></details>`;
+    });
+    html += `</div>`;
 
-  html += `</div>`;
+    html += `<div class="card"><h2>Strength targets by phase-end</h2>
+      <div class="plan-sect"><h4>P3 (mid-Jul '26) — hold through DB ramp</h4><ul>
+        <li>Bench press 5RM: 55 kg (121 lb)</li>
+        <li>Back squat 5RM: 65 kg (143 lb)</li>
+        <li>Weighted pull-up 5RM: +11 kg (+24 lb)</li>
+        <li>RDL 5RM: 65 kg (143 lb)</li>
+        <li>10k run: sub-58 min</li>
+      </ul></div>
+      <div class="plan-sect"><h4>P4 (late Aug '26) — marathon base built</h4><ul>
+        <li>Bench 57.5 kg · Squat 70 kg · Pull-up +13.5 kg</li>
+        <li>Long run 24 km completed</li>
+        <li>OC 330m: sub-2:00</li>
+      </ul></div>
+      <div class="plan-sect"><h4>P5 (late Sep '26) — peak</h4><ul>
+        <li>Bench 60 kg · Squat 72.5 kg · Pull-up +15.5 kg</li>
+        <li>Long run 30 km</li>
+        <li>OC 330m: 1:53–1:55 realistic</li>
+      </ul></div>
+      <div class="plan-sect"><h4>Race month targets</h4><ul>
+        <li>Marathon: 4:00–4:15 target, 4:30 backstop</li>
+        <li>Selection camp: paddle at club standard, fresh</li>
+        <li>HOLD lifts, don't build</li>
+      </ul></div>
+    </div>`;
 
-  html += `
-    <div class="card">
-      <h2>Current phase</h2>
-      <div class="subtitle">${pi.name} · ends ${pi.end}</div>
-      <p class="muted">${pi.desc}</p>
-    </div>
-  `;
+    html += `<div class="card"><h2>Marathon long-run schedule</h2>
+      <details><summary>P3 (May 29 – Jul 12) — base</summary><div>Wk 1: 10 km · Wk 2: 11 km · Wk 3: 13 km · Wk 4 cutback: 9 km · Wk 5: 14 km · Wk 6: 15 km
 
-  html += `
-    <div class="card">
-      <h2>Strength targets by phase-end</h2>
-      <div class="plan-sect">
-        <h4>Phase 3 (Jul 6, 2026)</h4>
-        <ul>
-          <li>Bench press 5RM: 125 lbs</li>
-          <li>Back squat 5RM: 155 lbs</li>
-          <li>Weighted pull-up 5RM: +25 lbs</li>
-          <li>Romanian deadlift 5RM: 155 lbs</li>
-          <li>Overhead press 5RM: 75 lbs</li>
-          <li>10k run: sub-58 min</li>
-        </ul>
-      </div>
-      <div class="plan-sect">
-        <h4>Phase 4 (Aug 24, 2026)</h4>
-        <ul>
-          <li>Bench 135 lbs × 5 (1.07× BW)</li>
-          <li>Squat 165 lbs × 5 (1.3× BW)</li>
-          <li>Weighted pull-up +35 lbs × 5</li>
-          <li>24 km long run completed</li>
-        </ul>
-      </div>
-      <div class="plan-sect">
-        <h4>October — Race month</h4>
-        <ul>
-          <li>Marathon: 4:00-4:15 target, 4:30 backstop</li>
-          <li>Selection camp: paddle times at club standard</li>
-          <li>Hold, don't build</li>
-        </ul>
-      </div>
-    </div>
-  `;
+All Z2 pace (7:00–7:30/km). If DB that day was brutal, shorten run by 2–3km.</div></details>
+      <details><summary>P4 (Jul 13 – Aug 30) — build</summary><div>Wk 1: 16 km · Wk 2: 18 km · Wk 3: 20 km · Wk 4 cutback: 14 km · Wk 5: 22 km · Wk 6: 24 km · Wk 7: 18 km (cutback)</div></details>
+      <details><summary>P5 (Aug 31 – Sep 27) — peak</summary><div>Wk 1: 26 km · Wk 2: 28 km · Wk 3: 30 km (longest) · Wk 4: 22 km (taper begins)</div></details>
+      <details><summary>P6 (Oct) — race taper</summary><div>2 wk pre-race: 16 km
+1 wk pre-race: 10 km easy + a few strides
+Race week: no long run. 3 × 20 min easy shakeouts.
+Skip heavy lifts race week. Carb-load Fri+Sat.</div></details>
+    </div>`;
 
-  html += `
-    <div class="card">
-      <h2>Long run schedule (Phase 4+)</h2>
-      <details><summary>Phase 4 (Jul 7 – Aug 24)</summary><div>
-        Week 1 Jul 7-13: 14km<br>Week 2: 16km<br>Week 3: 18km<br>Week 4 cutback: 12km<br>
-        Week 5: 20km<br>Week 6: 22km<br>Week 7: 24km<br><br>
-        All conversational pace (6:45-7:15/km).
-      </div></details>
-      <details><summary>Phase 5 (Aug 25 – Sep 28)</summary><div>
-        Week 1: 26km<br>Week 2: 28km<br>Week 3 cutback: 20km<br>Week 4: 30km<br>Week 5: 22km (taper begins)
-      </div></details>
-      <details><summary>Race taper (Phase 6)</summary><div>
-        2 weeks pre-race: 16km long run.<br>
-        Race week: 10km long Sunday before.<br>
-        Skip lifts race week. Carb load Fri+Sat.
-      </div></details>
-    </div>
+    html += `<div class="card"><h2>OC 330m training plan</h2><div class="subtitle">Selection test · realistic 1:53 · stretch 1:50</div>
+      <div class="plan-sect"><h4>Weekly structure (P3–P5)</h4><ul>
+        <li>Tue AM: 6×200m @ 330m pace, 2 min rest — lactate tolerance</li>
+        <li>Sat post-DB: 4×150m max effort — alactic power</li>
+        <li>Every 2 wks on Sat: full 330m time trial</li>
+      </ul><p class="muted mt">Never sprint the day before DB — fresh arms or it's junk volume.</p></div>
+      <div class="plan-sect"><h4>3 energy systems for 330m (~2 min)</h4><ul>
+        <li>Alactic (0–10s): 150m sprints, full rest</li>
+        <li>Lactic (10s–2 min): 6×200m at race pace — main stimulus</li>
+        <li>Aerobic: your 5× DB practices cover this</li>
+      </ul></div>
+      <div class="plan-sect"><h4>Progression expectations</h4><ul>
+        <li>PR 1:57 → 2:00 stable: already consistent</li>
+        <li>2:00 → 1:55: 6–8 weeks of quality intervals</li>
+        <li>1:55 → 1:50: perfect execution + calm water. Hard.</li>
+      </ul></div>
+    </div>`;
 
-    <div class="card">
-      <h2>Red flags</h2>
-      <div class="plan-sect">
-        <h4>STOP if any of these happen</h4>
-        <ul>
-          <li>Period irregular or absent &gt;35 days: add 300 kcal/day, cut volume 25%</li>
-          <li>Weight dropping &gt;0.7 kg/week avg over 2 weeks: you're losing muscle</li>
-          <li>Same lift regresses 2 weeks in a row with good sleep: under-recovered</li>
-          <li>Resting HR +5 bpm above baseline for 3+ days: deload</li>
-          <li>Pain (sharp, localized) not resolving in 48h: rest + physio</li>
-          <li>Sleep &lt;6.5h avg for 2 weeks: cut training not food</li>
-        </ul>
-      </div>
-    </div>
+    html += `<div class="card"><h2>Red flags — STOP and adjust</h2><div class="plan-sect"><ul>
+      <li>Period absent &gt; 40 days: add 300 kcal/day, cut volume 25%, see doctor if it repeats</li>
+      <li>Weight dropping &gt; 0.5 kg/week 2 weeks during peak: eating too little</li>
+      <li>Same lift regresses 2 weeks with good sleep: deload 10%</li>
+      <li>Resting HR +5 bpm above baseline 3+ days: extra rest day</li>
+      <li>Sharp localized pain &gt; 48h: rest + physio</li>
+      <li>Sleep &lt; 6.5h avg 2 weeks: CUT TRAINING not food</li>
+      <li>Obsessive food thoughts or avoiding social meals: talk to someone</li>
+    </ul></div></div>`;
 
-    <div class="card">
-      <h2>Execution triage when life breaks</h2>
-      <div class="plan-sect">
-        <ul>
-          <li>Can only do 1 thing → Paddle</li>
-          <li>Can do 2 → Paddle + sleep 8h</li>
-          <li>Can do 3 → + protein target</li>
-          <li>Can do 4 → + 1 lift OR 1 long run</li>
-        </ul>
-        <p class="muted mt">Never voluntarily skip a paddle through October.</p>
-      </div>
-    </div>
+    html += `<div class="card"><h2>Execution triage — when life breaks</h2><div class="plan-sect">
+      <p class="muted">You have 2 businesses, school, a heavy schedule. Some weeks break. Priorities:</p>
+      <ul>
+        <li>Can do 1 thing → DB practice (team commitment)</li>
+        <li>Can do 2 → + sleep 8h</li>
+        <li>Can do 3 → + hit 130g protein</li>
+        <li>Can do 4 → + 1 gym OR 1 long run</li>
+        <li>Full week → everything</li>
+      </ul>
+      <p class="muted mt">Never skip paddle through October. Gym + runs are expendable. Sleep + protein are not.</p>
+    </div></div>`;
 
-    <div class="card">
-      <h2>Nutrition by phase</h2>
-      <div class="plan-sect">
-        <ul>
-          <li>Phase 1-2: 2100-2250 kcal · 125g protein</li>
-          <li>Phase 3: 2285 kcal · 130g · 285g carbs</li>
-          <li>Phase 4: 2300 kcal · 130g · +300 on long run days</li>
-          <li>Phase 5: 2350 kcal · 135g · same</li>
-          <li>Phase 6: Fuel to perform, carb-load 48h pre-marathon</li>
-          <li>Phase 7: 1850 kcal · 145g protein · deficit 350</li>
-        </ul>
-      </div>
-    </div>
+    html += `<div class="card"><h2>Nutrition notes</h2>
+      <div class="plan-sect"><h4>Calibration week (now)</h4><p>Weigh food 5–7 days. Use MyFitnessPal or Cronometer. After that, eyeballing is fine — you'll know what 30g protein looks like.</p></div>
+      <div class="plan-sect"><h4>Protein anchors (130g split 4 meals)</h4><ul>
+        <li>Breakfast: 2 eggs + Greek yogurt → ~30g</li>
+        <li>Lunch: 120g chicken/tofu/tuna → ~30g</li>
+        <li>Pre-DB snack: whey shake → ~25g</li>
+        <li>Dinner: 120g fish/meat/beans → ~30g</li>
+        <li>Evening: cottage cheese → ~15g</li>
+      </ul></div>
+      <div class="plan-sect"><h4>Eating in China</h4><ul>
+        <li>Anchor every meal with protein: eggs, tofu, fish, chicken, pork</li>
+        <li>Great: steamed fish, stir-fried tofu, lean hot pot, congee with eggs</li>
+        <li>Watch: noodle bowls (low protein, high cal), street fried</li>
+        <li>Do not cut. Maintenance only.</li>
+      </ul></div>
+      <div class="plan-sect"><h4>Creatine in China</h4><ul>
+        <li>Bring 5g/day (~150g for a month) in a labeled container</li>
+        <li>OR buy on Taobao/JD — search "肌酸" (一水 = monohydrate)</li>
+        <li>Skipping a month: you lose nothing permanent. Re-saturate 2–4 wks on return.</li>
+      </ul></div>
+    </div>`;
 
-    <div class="card">
-      <h2>OC training plan</h2>
-      <div class="subtitle">330m selection test — realistic 1:53 · stretch 1:50</div>
-      <div class="plan-sect">
-        <h4>Weekly structure (Phase 3+)</h4>
-        <ul>
-          <li>Tue AM: OC intervals — lactate tolerance (6×200m at 330m pace)</li>
-          <li>Sat PM: OC race-specific — 330m tests, 150m sprints</li>
-          <li>Sun (optional): OC technical — 45-60min steady, focus on catch & rotation</li>
-          <li>Target: 2-3 OC sessions/week</li>
-        </ul>
-        <p class="muted mt">Key rule: Never schedule OC intervals or sprint work the day before a DB practice — you need fresh arms.</p>
-      </div>
-      <div class="plan-sect">
-        <h4>3 energy systems for 330m</h4>
-        <ul>
-          <li>Alactic (first 10s): 150m sprints max effort, full rest</li>
-          <li>Lactic (10s-2min): 6×200m at 330m pace, 2min rest — main stimulus</li>
-          <li>Aerobic capacity: steady Z2 paddles 30-45min</li>
-        </ul>
-        <p class="muted mt">Your 1:57-2:07 range means lactic system is the limiter. That's what Tuesday intervals target.</p>
-      </div>
-      <div class="plan-sect">
-        <h4>Testing protocol</h4>
-        <ul>
-          <li>Full 330m time trial every 2 weeks</li>
-          <li>Always after 10min warmup + 3 short builds</li>
-          <li>Calm water when possible</li>
-          <li>Log in Lifts tab</li>
-        </ul>
-      </div>
-      <div class="plan-sect">
-        <h4>Progression expectations</h4>
-        <ul>
-          <li>2:07 → 2:00: achievable in 4-6 weeks with quality intervals</li>
-          <li>2:00 → 1:55: 6-8 more weeks, last 5s are hardest</li>
-          <li>1:55 → 1:50: requires perfect execution, strength gains translating, good conditions</li>
-          <li>Don't time-trial every session — burnout risk</li>
-        </ul>
-      </div>
-      <div class="plan-sect">
-        <h4>OC overtraining red flags</h4>
-        <ul>
-          <li>Forearm tendinitis or grip drop → reduce pull-up/row volume</li>
-          <li>Shoulder niggles → check catch technique, more face pulls</li>
-          <li>Lower back fatigue → reduce RDL weight, more Pallof press</li>
-        </ul>
-      </div>
-    </div>
+    html += `<div class="card"><h2>Cycle + training</h2><div class="plan-sect">
+      <p class="muted">Evidence on cycle-specific programming is mixed. Use symptoms, not a calendar.</p>
+      <ul>
+        <li>Days 1–2 (bad cramps): -15% top set. Otherwise train normal.</li>
+        <li>Mid-luteal (21–26): +150 kcal, magnesium 300mg pre-bed, hydrate more</li>
+        <li>Track 3 months and find YOUR pattern. Don't rearrange the whole week by phase.</li>
+        <li>Missing period = RED FLAG (see above)</li>
+      </ul>
+    </div></div>`;
 
-    <div class="card">
-      <h2>Cycle notes</h2>
-      <div class="plan-sect">
-        <ul>
-          <li>Days 1-2 of period: if bad cramps, -15% top set. Otherwise train normal.</li>
-          <li>Mid-luteal (days 21-26): hydrate more, +150 kcal/day, magnesium 300mg before bed.</li>
-          <li>Do NOT rearrange the whole week around phases — track & adjust only.</li>
-          <li>Missing period = RED FLAG. See above.</li>
-        </ul>
-      </div>
-    </div>
+    html += `<div class="card"><h2>Mindset · what this takes</h2>
+      <div class="plan-sect"><h4>What discipline actually is</h4><ul>
+        <li>NOT pushing harder. It's doing the sustainable amount when you don't feel like it.</li>
+        <li>The DB practice on a tired Wed builds the athlete — not the hero session on a fresh Sat.</li>
+        <li>Skipping 1 day is normal. Skipping 3 is a pattern. Notice the pattern early.</li>
+      </ul></div>
+      <div class="plan-sect"><h4>The friction trap</h4><ul>
+        <li>A plan executed 80% for 6 months beats a perfect plan for 3 weeks</li>
+        <li>If the app feels like a chore, log less: sessions + weight daily, food 4 days/wk, everything else optional</li>
+        <li>Sunday review is the most important 2 minutes of your week. Don't skip.</li>
+      </ul></div>
+      <div class="plan-sect"><h4>The aesthetic paradox</h4><ul>
+        <li>You said muscle makes you look "fatter." Through November, muscle is non-negotiable — your sports require it.</li>
+        <li>"Lean abs" is the P7 job. More muscle = more to reveal. The cut works faster on a muscular base.</li>
+        <li>The lean arms you see on Instagram have the muscle you're worried about. Without it, you just get smaller, not leaner.</li>
+      </ul></div>
+    </div>`;
 
-    <div class="card">
-      <h2>Supplements (minimal)</h2>
-      <div class="plan-sect">
-        <h4>Only supplement</h4>
-        <ul>
-          <li>Creatine monohydrate 5g daily — any time, with water. Skip loading.</li>
-        </ul>
-      </div>
-      <div class="plan-sect">
-        <h4>Get from whole foods instead</h4>
-        <ul>
-          <li>Protein → eggs, chicken thighs, fish, tofu, Greek yogurt, cottage cheese</li>
-          <li>Vitamin D → salmon/sardines 2x/wk, egg yolks, fortified milk</li>
-          <li>Magnesium → almonds, spinach, pumpkin seeds, dark chocolate, black beans</li>
-          <li>Omega-3 → salmon, sardines, walnuts, chia/flax seeds</li>
-          <li>Iron → red meat, lentils, chickpeas, spinach + vitamin C pairing</li>
-        </ul>
-      </div>
-      <div class="plan-sect">
-        <h4>Watch-outs for Montreal winters</h4>
-        <ul>
-          <li>Vitamin D from sun = near-zero Nov-March. If not eating fatty fish 2x/wk, consider D3 only in winter.</li>
-          <li>Iron loss from menstruation + endurance training is real. If chronic fatigue, get ferritin tested before assuming food is enough.</li>
-        </ul>
-      </div>
-    </div>
-  `;
+    html += `<div class="card"><h2>Supplements</h2>
+      <div class="plan-sect"><h4>Daily</h4><ul><li>Creatine monohydrate 5g — any time with water</li></ul></div>
+      <div class="plan-sect"><h4>Consider</h4><ul>
+        <li>Vitamin D3 in Montreal winter (Nov–Mar) if no fatty fish 2×/wk</li>
+        <li>Iron — get ferritin tested first. Endurance + period loss = real risk.</li>
+        <li>Magnesium 300mg pre-bed in luteal phase if cramps/sleep issues</li>
+      </ul></div>
+      <div class="plan-sect"><h4>Skip</h4><ul>
+        <li>Fat burners, BCAAs, greens powders, pre-workouts, collagen</li>
+        <li>Food is the tool. Everything else is marketing.</li>
+      </ul></div>
+    </div>`;
 
-  document.getElementById('view-plan').innerHTML = html;
+    document.getElementById('view-plan').innerHTML = html;
+  } catch(e) {
+    console.error('renderPlan', e);
+    document.getElementById('view-plan').innerHTML = `<div class="warn-box">Render error: ${e.message}</div>`;
+  }
 }
+
+function switchTab(name) {
+  try {
+    document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
+    document.querySelectorAll('.view').forEach(v => v.classList.add('hide'));
+    const target = document.getElementById('view-' + name);
+    if (target) target.classList.remove('hide');
+    renderView(name);
+  } catch(e) { console.error('switchTab', e); }
+}
+
+function renderView(name) {
+  if (name === 'today') renderToday();
+  else if (name === 'lifts') renderLifts();
+  else if (name === 'food') renderFood();
+  else if (name === 'body') renderBody();
+  else if (name === 'history') renderHistory();
+  else if (name === 'plan') renderPlan();
+}
+
+const handlers = {
+  logSet(el) {
+    const { date, session: sessionKey, ex, set: setIdx, field } = el.dataset;
+    const exName = decodeURIComponent(ex);
+    if (!DATA.workouts[date]) DATA.workouts[date] = {session: sessionKey, exercises: []};
+    const w = DATA.workouts[date];
+    if (!w.exercises) w.exercises = [];
+    let exRec = w.exercises.find(e => e.name === exName);
+    if (!exRec) { exRec = {name: exName, sets: []}; w.exercises.push(exRec); }
+    const idx = parseInt(setIdx);
+    while (exRec.sets.length <= idx) exRec.sets.push({});
+    if (field === 'weight') {
+      exRec.sets[idx].weight_kg = fromLiftDisplay(el.value);
+      // auto-mark done when reps already present
+      if (exRec.sets[idx].reps > 0 && exRec.sets[idx].weight_kg) exRec.sets[idx].done = true;
+    } else if (field === 'km') {
+      const n = parseFloat(el.value);
+      exRec.sets[idx].km = isNaN(n) ? undefined : n;
+      if (!isNaN(n) && n > 0) exRec.sets[idx].done = true;
+    } else if (field === 'minutes') {
+      const n = parseFloat(el.value);
+      exRec.sets[idx].minutes = isNaN(n) ? undefined : n;
+    } else if (field === 'seconds') {
+      const n = parseInt(el.value);
+      exRec.sets[idx].seconds = isNaN(n) ? undefined : n;
+      if (!isNaN(n) && n > 0) exRec.sets[idx].done = true;
+    } else if (field === 'time') {
+      const sec = parseTimeString(el.value);
+      exRec.sets[idx].seconds = isNaN(sec) ? undefined : sec;
+      if (!isNaN(sec) && sec > 0) exRec.sets[idx].done = true;
+    } else {
+      const val = parseInt(el.value);
+      exRec.sets[idx][field] = isNaN(val) ? undefined : val;
+      if (field === 'reps' && val > 0) exRec.sets[idx].done = true;
+    }
+    saveData();
+    if (field === 'reps' || field === 'km' || field === 'seconds' || field === 'time') renderToday();
+  },
+  toggleDone(el) {
+    const { date, session: sessionKey, ex, set: setIdx } = el.dataset;
+    const exName = decodeURIComponent(ex);
+    if (!DATA.workouts[date]) DATA.workouts[date] = {session: sessionKey, exercises: []};
+    const w = DATA.workouts[date];
+    if (!w.exercises) w.exercises = [];
+    let exRec = w.exercises.find(e => e.name === exName);
+    if (!exRec) { exRec = {name: exName, sets: []}; w.exercises.push(exRec); }
+    const idx = parseInt(setIdx);
+    while (exRec.sets.length <= idx) exRec.sets.push({});
+    exRec.sets[idx].done = !exRec.sets[idx].done;
+    saveData();
+    renderToday();
+  },
+  logSessionNote(el) {
+    const { date, session: sessionKey } = el.dataset;
+    if (!DATA.workouts[date]) DATA.workouts[date] = {session: sessionKey, exercises: []};
+    DATA.workouts[date].session_note = el.value;
+    saveData();
+  },
+  goto(el) { switchTab(el.dataset.target); },
+  logWeight() {
+    const val = fromDisplayWeight(document.getElementById('wt-input').value);
+    if (val === null) return toast('Enter a number');
+    DATA.weight[VIEWING_DATE] = val;
+    saveData();
+    toast('Weight logged');
+    renderToday();
+  },
+  logWeightBody() {
+    const val = fromDisplayWeight(document.getElementById('wt-body-input').value);
+    if (val === null) return toast('Enter a number');
+    DATA.weight[today()] = val;
+    saveData();
+    toast('Logged');
+    renderBody();
+  },
+  setUnit(el) {
+    DATA.settings.unit = el.dataset.val;
+    saveData();
+    toast('Unit: ' + el.dataset.val);
+    renderBody();
+  },
+  logOC330() {
+    const val = document.getElementById('oc-time').value;
+    const seconds = parseTimeString(val);
+    if (isNaN(seconds) || seconds < 60 || seconds > 300) return toast('Invalid (e.g. 1:54)');
+    DATA.oc_tests.push({date: today(), seconds});
+    saveData();
+    toast('330m logged');
+    renderLifts();
+  },
+  logOC150() {
+    const val = document.getElementById('oc150-time').value;
+    const seconds = parseFloat(val);
+    if (isNaN(seconds) || seconds < 30 || seconds > 120) return toast('Invalid (e.g. 56.5)');
+    DATA.oc150_tests.push({date: today(), seconds});
+    saveData();
+    toast('150m logged');
+    renderLifts();
+  },
+  logRun() {
+    const km = parseFloat(document.getElementById('run-km').value);
+    const min = parseFloat(document.getElementById('run-min').value);
+    const type = document.getElementById('run-type').value;
+    if (isNaN(km) || isNaN(min)) return toast('km + minutes required');
+    DATA.runs[today()] = {km, minutes: min, type};
+    saveData();
+    toast('Run logged');
+    renderLifts();
+  },
+  addFood(el) {
+    const f = DATA.custom_foods[parseInt(el.dataset.idx)];
+    const date = VIEWING_DATE;
+    if (!DATA.food[date]) DATA.food[date] = [];
+    DATA.food[date].push({...f});
+    saveData();
+    toast('+ ' + f.name);
+    renderFood();
+  },
+  addCustomFood(el) {
+    const savePreset = el.dataset.save === '1';
+    const name = document.getElementById('food-name').value.trim();
+    const kcal = parseFloat(document.getElementById('food-kcal').value) || 0;
+    const p = parseFloat(document.getElementById('food-p').value) || 0;
+    const c = parseFloat(document.getElementById('food-c').value) || 0;
+    const f = parseFloat(document.getElementById('food-f').value) || 0;
+    if (!name || kcal === 0) return toast('Name + kcal required');
+    const entry = {name, kcal, p, c, f};
+    const date = VIEWING_DATE;
+    if (!DATA.food[date]) DATA.food[date] = [];
+    DATA.food[date].push(entry);
+    if (savePreset) DATA.custom_foods.push(entry);
+    saveData();
+    ['food-name','food-kcal','food-p','food-c','food-f'].forEach(id => document.getElementById(id).value = '');
+    toast('Logged');
+    renderFood();
+  },
+  deleteFood(el) {
+    const idx = parseInt(el.dataset.idx);
+    const date = VIEWING_DATE;
+    DATA.food[date].splice(idx, 1);
+    saveData();
+    renderFood();
+  },
+  togglePeriodStart() {
+    if (!DATA.cycle[today()]) DATA.cycle[today()] = {};
+    DATA.cycle[today()].period_start = !DATA.cycle[today()].period_start;
+    if (DATA.cycle[today()].period_start && !DATA.cycle[today()].flow) DATA.cycle[today()].flow = 'medium';
+    saveData();
+    toast(DATA.cycle[today()].period_start ? 'Period logged' : 'Undone');
+    renderBody();
+  },
+  logCycle(el) {
+    const field = el.dataset.field;
+    if (!DATA.cycle[today()]) DATA.cycle[today()] = {};
+    DATA.cycle[today()][field] = el.value;
+    saveData();
+  },
+  saveReview() {
+    const review = {
+      sleep: document.getElementById('note-sleep').value,
+      bad_session: document.getElementById('note-bad').value,
+      pain: document.getElementById('note-pain').value,
+      wins: document.getElementById('note-wins').value,
+      date: today()
+    };
+    DATA.notes[today()] = review;
+    saveData();
+    toast('Review saved');
+  },
+  exportData() {
+    const blob = new Blob([JSON.stringify(DATA, null, 2)], {type: 'application/json'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'hybrid-athlete-' + today() + '.json';
+    a.click();
+    URL.revokeObjectURL(url);
+  },
+  importData() { document.getElementById('import-file').click(); },
+  editSettings() {
+    const s = DATA.settings;
+    const kcal = prompt('Daily kcal target', s.kcal_target); if (kcal === null) return;
+    const prot = prompt('Daily protein target (g)', s.protein_target); if (prot === null) return;
+    const carbs = prompt('Daily carbs target (g)', s.carbs_target); if (carbs === null) return;
+    const fat = prompt('Daily fat target (g)', s.fat_target); if (fat === null) return;
+    s.kcal_target = parseInt(kcal) || s.kcal_target;
+    s.protein_target = parseInt(prot) || s.protein_target;
+    s.carbs_target = parseInt(carbs) || s.carbs_target;
+    s.fat_target = parseInt(fat) || s.fat_target;
+    saveData();
+    toast('Updated');
+    renderBody();
+  },
+  resetData() {
+    if (!confirm('Wipe ALL data? Export first if unsure.')) return;
+    if (!confirm('Really? This is permanent.')) return;
+    DATA = defaultData();
+    saveData();
+    toast('Reset');
+    switchTab('today');
+  },
+  historyStep(el) {
+    const step = parseInt(el.dataset.step);
+    const d = parseDate(HISTORY_ANCHOR);
+    d.setDate(d.getDate() + step);
+    HISTORY_ANCHOR = dateStr(d);
+    renderHistory();
+  },
+  historyJump() {
+    const val = document.getElementById('history-date-input').value;
+    if (val) HISTORY_ANCHOR = val;
+    renderHistory();
+  },
+  historyToday() { HISTORY_ANCHOR = today(); renderHistory(); },
+  historyGoto(el) { HISTORY_ANCHOR = el.dataset.date; renderHistory(); },
+  dayStep(el) {
+    const step = parseInt(el.dataset.step);
+    const d = parseDate(VIEWING_DATE);
+    d.setDate(d.getDate() + step);
+    VIEWING_DATE = dateStr(d);
+    const active = document.querySelector('.tab.active')?.dataset.tab || 'today';
+    renderView(active);
+  },
+  dayJump() {
+    const val = document.getElementById('day-picker').value;
+    if (val) VIEWING_DATE = val;
+    const active = document.querySelector('.tab.active')?.dataset.tab || 'today';
+    renderView(active);
+  },
+  dayToday() {
+    VIEWING_DATE = today();
+    const active = document.querySelector('.tab.active')?.dataset.tab || 'today';
+    renderView(active);
+  }
+};
+
+function handleEvent(ev) {
+  let el = ev.target;
+  while (el && el !== document.body) {
+    if (el.dataset && el.dataset.action) {
+      const handler = handlers[el.dataset.action];
+      if (handler) { handler(el, ev); return; }
+    }
+    el = el.parentElement;
+  }
+}
+
+document.addEventListener('click', handleEvent);
+document.addEventListener('change', handleEvent);
+
+document.getElementById('nav-tabs').addEventListener('click', (ev) => {
+  const tab = ev.target.closest('.tab');
+  if (tab) switchTab(tab.dataset.tab);
+});
+
+document.getElementById('import-file').addEventListener('change', (ev) => {
+  const file = ev.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    try {
+      const imported = JSON.parse(e.target.result);
+      if (!confirm('Replace ALL current data?')) return;
+      DATA = imported;
+      saveData();
+      toast('Imported');
+      switchTab('today');
+    } catch(err) { toast('Invalid file'); }
+  };
+  reader.readAsText(file);
+});
 
 renderToday();
-
-if (!DATA.settings._first_open) {
-  DATA.settings._first_open = today();
-  saveData();
-}
+})();
 </script>
 </body>
 </html>
