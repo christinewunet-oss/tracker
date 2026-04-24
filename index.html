@@ -1695,6 +1695,13 @@ function handleEvent(ev) {
   let el = ev.target;
   while (el && el !== document.body) {
     if (el.dataset && el.dataset.action) {
+      const tag = el.tagName;
+      const isInput = tag === 'INPUT' || tag === 'SELECT' || tag === 'TEXTAREA';
+      // Inputs only respond to change/blur events; buttons/divs only respond to clicks.
+      // Without this guard, tapping into a number field triggers a re-render
+      // that destroys the input before the user can type.
+      if (isInput && ev.type !== 'change') return;
+      if (!isInput && ev.type !== 'click') return;
       const handler = handlers[el.dataset.action];
       if (handler) { handler(el, ev); return; }
     }
